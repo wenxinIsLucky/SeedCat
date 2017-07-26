@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ymkj.furniture.mapper.ColtdAddressMapper">
+	<resultMap id="coltdAddress" type="com.ymkj.furniture.entity.ColtdAddress">
+		<id column="caid" property="caid" />
+		<result column="name" property="name" />
+		<result column="address" property="address" />
+		<result column="youbian" property="youbian" />
+		<result column="phone" property="phone" />
+		<result column="chuanzhen" property="chuanzhen" />
+		<result column="email" property="email" />
+		<result column="isMr" property="isMr"/>
+	</resultMap>
+	<!-- 添加公司地址 -->
+	<insert id="addColtdAddress">
+		insert into coltd_address(`name`,address,youbian,phone,chuanzhen,email) values(#{name},#{address},#{youbian},#{phone},#{chuanzhen},#{email})
+	</insert>
+	
+	<!-- 查看公司地址 -->
+	<select id="findColtdAddredd" resultMap="coltdAddress">
+		select * from coltd_address
+	</select>
+	
+	<!-- 修改公司地址 -->
+	<update id="updColtdAddress">
+		update coltd_address set `name`=#{name},address=#{address},youbian=#{youbian},phone=#{phone},chuanzhen=#{chuanzhen},email=#{email} where caid = #{caid}
+	</update>
+	
+	<!-- 设置默认地址 -->
+	<update id="updColtdAddressIsMr">
+		update coltd_address set isMr = #{isMr}
+		<if test="isMr==1">
+			 where caid = #{caid}
+		</if>
+	</update>
+	
+	<!-- 删除公司地址 -->
+	<delete id="delColtdAddress">
+		delete from coltd_address where caid = #{caid}
+	</delete>
+</mapper>

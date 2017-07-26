@@ -1,0 +1,3 @@
+index					首页
+corporate_culture		企业文化
+furniture_culture		家居文化	

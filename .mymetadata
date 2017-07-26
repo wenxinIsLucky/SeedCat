@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Member_Fission"
+  id="myeclipse.1462720271687"
+  context-root="/YGH"
+  j2ee-spec="5.0"
+  archive="Member_Fission.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

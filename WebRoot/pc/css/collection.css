@@ -1,0 +1,109 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.articleCollection_div{
+	/* border:1px solid #eee; */
+	width: 100%;
+}
+.one_zong_article_div{
+	width: 240px;
+	height: 300px;
+	border-radius:10px;
+	margin-bottom: 20px;
+	float: left;
+}
+.one_zong_footPrint_div{
+	width: 240px;
+	height: 300px;
+	border-radius:10px;
+	margin: 0px 0px 20px 18px;
+	float: left;
+}
+.content_article_div{
+	width: 240px;
+	height: 240px;
+	border:1px solid #ccc;
+	border-radius:10px;
+}
+.content_article_div img{
+	width: 240px;
+	height: 180px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	cursor: pointer;
+}
+.content_article_div p{
+	color:#555;
+	font-size: 16px;
+	line-height: 25px; 
+	width: 220px;
+	margin: 10px auto 0px auto;
+	font-weight: 800;
+	cursor: pointer;
+}
+/* .content_article_div p::after{
+	content: "..."; 
+	position: absolute; 
+	bottom: 0; 
+	right: 0; 
+	padding-left: 40px;
+	background: -webkit-linear-gradient(left, transparent, #fff 55%);
+	background: -o-linear-gradient(right, transparent, #fff 55%);
+	background: -moz-linear-gradient(right, transparent, #fff 55%);
+	background: linear-gradient(to right, transparent, #fff 55%);
+	border-bottom-right-radius:10px;
+} */
+.qx_div_button{
+	width: 100px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	border:1px solid #ccc;
+	margin: 10px auto 0px auto;
+	font-size: 14px;
+	cursor: pointer;
+	border-radius:10px;
+}
+.qx_div_button:hover{
+	color:#fff;
+	background-color: #ff4200;
+	border-color: #ff4200;
+}
+.date_div_solid{
+	border-bottom:1px dotted #ccc;
+	width: 100%;
+	clear: both;
+	position: relative;
+	height: 20px;
+}
+.date_div_solid span{
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px 0 0;
+	font-size: 14px;
+	font-weight: 700;
+	color: #666;
+	position: absolute;
+	top: 4px;
+	background: #fff;
+	width: 100px;
+	text-align: center;
+}
+.date_div_palan{
+	font-size: 14px;
+	text-align: center;
+	z-index: 99;
+	position: relative;
+	background:rgba(0,0,0,0.5);
+   	background:#000\9;/*CSS Hack,只能对ie9以下浏览器ie6,ie7,ie8有效，否侧ie10,FF,Cherome会失去透明效果*/
+   	filter:Alpha(opacity=50);/*只对ie7,ie8有效*/
+   	color:#eee;
+   	height: 22px;
+   	line-height: 22px;
+   	top: 23px;
+   	left:1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}

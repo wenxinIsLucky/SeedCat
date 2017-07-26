@@ -1,0 +1,5 @@
+topic					社区话题
+shoot_off				社区拍客
+community_info			详情
+community_home			社区首页
+post					发表帖子

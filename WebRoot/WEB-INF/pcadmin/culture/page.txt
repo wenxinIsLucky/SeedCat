@@ -1,0 +1,2 @@
+home_culture					--文章管理
+post							--添加文章

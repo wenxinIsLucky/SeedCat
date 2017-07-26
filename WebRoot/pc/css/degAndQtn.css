@@ -1,0 +1,306 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input:-webkit-autofill,select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.degAndQtn_zong_div {
+	width: 100%;
+}
+
+.clear {
+	clear: both;
+}
+
+.base {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.lb {
+	width: 1100px;
+	margin-top: 20px;
+}
+
+.lb img {
+	width: 100%;
+	border: 2px dashed #ccc;
+	-webkit-box-shadow: #666 -10px 10px 20px;
+	-moz-box-shadow: #666 -10px 10px 20px;
+	box-shadow: #666 -10px 10px 20px;
+}
+
+.ybj .ybjp {
+	text-align: center;
+	padding-top: 65px;
+	display: block;
+	color: #919191;
+	font-size: 16px;
+}
+
+.ybj .ybjp span {
+	color: #d53129;
+}
+
+p {
+	font-size: 18px;
+	color: #333;
+	line-height: 42px;
+	display: inline-block;
+}
+
+p input {
+	width: 220px;
+	height: 42px;
+	border-radius: 20px;
+	font-size: 20px;
+}
+
+.ybjerp {
+	margin-right: 47px;
+}
+
+.ybjerp11 span {
+	font-size: 20px;
+	display: inline-block;
+	width: 90px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+	text-shadow: 2px 3px 2px #999;
+}
+
+.ybjerp11 span:not(:last-child){
+	margin-right: 10px;
+}
+
+.ybjerp11 span:hover {
+	background-color: #ff4200;
+	color: #fff;
+	border-radius: 10px;
+	text-shadow: 2px 3px 2px #999;
+}
+
+.ybjer {
+	margin-top: 20px;
+}
+
+.ybjerp12 {
+	width: 239px;
+	height: 47px;
+	background: #ff4200;
+	border-radius: 10px;
+	text-align: center;
+	color: #fff;
+	line-height: 47px;
+	cursor: pointer;
+}
+
+.ybjerp select {
+	width: 100px;
+	height: 39px;
+	border-radius: 20px;
+	font-size: 20px;
+}
+
+.digs {
+	margin-right: 5px;
+}
+
+.cs {
+	width: 644px;
+	/* height: 170px; */
+	border: 1px solid #bfbdbd;
+	background: #f8f8f8;
+	border-radius: 20px;
+	margin: 30px auto 0px auto;
+	-webkit-box-shadow: #666 0px 0px 10px;  
+   	-moz-box-shadow: #666 0px 0px 10px;  
+   	box-shadow: #666 0px 0px 10px;  
+}
+
+.cs p {
+	font-size: 16px;
+	color: #919191;
+	line-height: 42px;
+	display: block;
+	text-align: center;
+}
+
+.cs p span {
+	color: #d53129;
+}
+
+.mfsjfa {
+	margin-top: 56px;
+	width: 100%;
+}
+
+.mfsjfap {
+	font-size: 24px;
+	color: #333;
+	line-height: 72px;
+}
+
+.mfsjfad dl {
+	float: left;
+}
+
+.mfsjfad dl:not(:last-child){
+	margin-right: 28px;
+}
+
+.mfsjfad dl dt img {
+	width: 250px;
+	height: 180px;
+	border: 2px solid #ccc;
+	-webkit-box-shadow: #666 0px 0px 10px;
+	-moz-box-shadow: #666 0px 0px 10px;
+	box-shadow: #666 0px 0px 10px;
+}
+
+.mfsjfad dl dd p {
+	font-size: 16px;
+	line-height: 22px;
+	color: #333;
+	text-align: center;
+	text-shadow: 2px 3px 2px #999;
+	/* -超出部分省略号显示 - */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/* --- */
+	width: 230px;
+	margin: 0 auto;
+}
+
+.imt {
+	width: 100%;
+}
+
+.imt img {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.zygw {
+	margin-top: 37px;
+}
+
+.zygw ul {
+	float: left;
+	margin-left: 118px;
+}
+
+.zygw ul li {
+	width: 50px;
+	height: 50px;
+	background: #333;
+	color: #fff;
+	border-radius: 100%;
+	margin-top: 24px;
+	text-align: center;
+	line-height: 22px;
+	font-size: 14px;
+}
+
+.zygw ul .zygwl {
+	background: #d53129;
+	margin-top: 0;
+	line-height: 67px;
+}
+
+.bfy {
+	width: 278px;
+	float: left;
+	margin-left: 64px;
+}
+
+.bfy .bfyp {
+	line-height: 58px;
+	height: 58px;
+	color: #fff;
+	width: 288px;
+	background: #d53129;
+	text-align: center;
+	font-size: 24px;
+}
+
+.bfyl {
+	width: 278px;
+	height: 378px;
+	border: #d53129;
+	border-width: 0 5px 0 5px;
+	border-style: solid;
+}
+
+.bfyl p {
+	font-size: 14px;
+	color: #333;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.bfyl p img {
+	margin-right: 8px;
+	float: left;
+}
+
+.bfyl p span {
+	margin-top: -12px;
+	display: block;
+	float: left
+}
+
+.bfyx {
+	float: left;
+	margin-left: 136px;
+}
+
+.bfyx .bfyxp {
+	font-size: 26px;
+	color: #333;
+}
+
+.bfyxd {
+	margin-top: 44px;
+}
+
+.bfyxd p {
+	display: inline-block;
+	font-size: 14px;
+	color: #333;
+	line-height: 21px;
+	margin-bottom: 50px;
+}
+
+.bfyxd p img {
+	margin-right: 6px;
+	float: left;
+}
+
+.bfyxd p span {
+	float: left;
+	display: block;
+}
+
+.curr_dangci {
+	background-color: #ff4200;
+	color: #fff;
+	border-radius: 10px;
+	text-shadow: 2px 3px 2px #999;
+}

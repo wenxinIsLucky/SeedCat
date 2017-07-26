@@ -1,0 +1,244 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+html{
+	background-color: #eee;
+}
+.confirm_mes_info{
+	background:rgba(0,0,0,0.6);
+   	background:#000\9;/*CSS Hack,只能对ie9以下浏览器ie6,ie7,ie8有效，否侧		ie10,FF,Cherome会失去透明效果*/
+   	filter:Alpha(opacity=60);/*只对ie7,ie8有效*/
+   	width: 100%;
+   	height: 100%;
+   	position: fixed;
+   	display: none;
+}
+.confirm_bianban{
+	width: 70%;
+	height: 200px;
+	position: absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	margin:auto;
+	background-color:#fff;
+	min-width: 260px;
+	max-width: 400px;
+	border-radius:10px;
+}
+.bill_mes_info{
+	width: 100%;
+	height: 75%;
+}
+.bill_mes_info p{
+	display:block;
+	width: 96%;
+	margin: 0px auto;
+	line-height: 36px;
+	font-size: 18px;
+	color:#000000;
+	font-weight: bold;
+}
+.bill_mes_info t{
+	width: 40%;
+	display: inline-block;
+	text-align: right;
+}
+.title_color{
+	height: 5%;
+	width: 100%;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background:rgba(175,255,255,0.6);
+   	background:#afffff\9;/*CSS Hack,只能对ie9以下浏览器ie6,ie7,ie8有效，否侧		ie10,FF,Cherome会失去透明效果*/
+   	filter:Alpha(opacity=60);/*只对ie7,ie8有效*/
+}
+.bill_mes_info span{
+	width: 60%;
+	display: inline-block;
+}
+.mes_button{
+	width: 100%;
+	height: 25%;
+	background-color: #eee;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.mes_button .quxiao,.mes_button .submit{
+	width: 35%;
+	height: 40px;
+	background-color: #0085D0;
+	color:#fff;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 40px;
+	border-radius:5px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+.mes_button .quxiao{
+	float: left;
+	margin-left: 10px;
+}
+.mes_button .submit{
+	float: right;
+	margin-right: 10px;
+}
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input:-webkit-autofill,select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+	color: #0085D0;
+	padding-left: 10px;
+}
+
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #0085D0;
+	padding-left: 10px;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #0085D0;
+	padding-left: 10px;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #0085D0;
+	padding-left: 10px;
+}
+.bill_zong_div{
+	width: 100%;
+	min-width: 320px;
+	max-width: 1000px;
+	margin: 0px auto;
+}
+.bill_title{
+	font-size: 24px;
+	font-weight: bold;
+	color:#0085D0;
+	text-align: center;
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+.tel_div .phone{
+	width: 98%;
+	height: 36px;
+	margin: 0px auto;
+	display: block;
+	border-radius:10px;
+	font-size: 18px;
+	color: #0085D0;
+	border: 1px solid #0085D0;
+}
+.tel_div .tel_mes{
+	display: block;
+	width: 95%;
+	margin: 10px auto;
+	font-size: 18px;
+	color:#555;
+}
+.bill_kc{
+	width: 95%;
+	margin: 0px auto;
+	display:-webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -moz-box-orient:vertical;
+    -moz-box-direction:normal;
+    flex-direction:row;
+    -webkit-flex-direction:row;
+    
+	-webkit-flex-flow:row wrap;
+    -webkit-box-orient:horizontal;
+    -webkit-box-lines:multiple;
+　　-moz-flex-flow:row wrap;
+    box-orient:horizontal;
+    box-lines:multiple;
+    flex-flow:row wrap;
+}
+.bill_kc_span{
+	font-size: 18px;
+	color:#555;
+	display: block;
+	width: 95%;
+	margin: 30px auto 10px auto;
+}
+.bill_info{
+	border: 1px solid #666;
+    width: 100px; /*每个元素的初始化宽度*/
+    text-align: center;
+    max-width: 160px;
+    min-width: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 84px;
+    border-radius:5px;
+    background-color: #fff;
+    cursor: pointer;
+/*     flex:auto;  这是关键 
+	box-flex:auto;
+	-webkit-box-flex:auto;
+	-moz-box-flex:auto;
+	flex:auto;
+	-webkit-flex:auto;*/
+}
+.bill_info y,.bill_info span,.bill_info mes{
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 28px;
+}
+.bill_info y{
+	color:#0085D0;
+}
+.bill_info span{
+	color:#ff4200;
+}
+.bill_info mes{
+	color:#666;
+}
+.tx_span{
+	font-size: 20px;
+	display: block;
+	width: 95%;
+	margin: 10px auto;
+}
+.mes_info{
+	border:2px dotted #666;
+	border-radius:10px;
+	width: 95%;
+	margin: 10px auto;
+	font-size: 12px;
+	color:red;
+}
+.mes_info p{
+	margin-left:5px;
+	margin-top: 5px;
+}
+.mes_info span{
+	display: block;
+	line-height: 24px;
+	width: 70%;
+	margin-left: 65px;
+}

@@ -1,0 +1,331 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+.clear {
+	clear: both;
+}
+
+.height {
+	height: 40px;
+}
+
+.zong_div {
+	width: 100%;
+	min-width: 320px;
+}
+
+.title_div {
+	background-color: #14D212;
+	color: #fff;
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	max-width: 1000px;
+	margin: 0px auto;
+	min-width: 320px;
+}
+.title_div img{
+	width: 24px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 6px;
+	cursor: pointer;
+}
+
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input:-webkit-autofill,select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+	color: #14D212;
+	padding-left: 10px;
+}
+
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #14D212;
+	padding-left: 10px;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #14D212;
+	padding-left: 10px;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #14D212;
+	padding-left: 10px;
+}
+
+.tel_div_info {
+	width: 96%;
+	margin: 20px auto;
+	max-width: 1000px;
+	min-width: 320px;
+}
+
+.phone {
+	background: url("../images/phone_b.png") right 50% no-repeat;
+	background-size: 32px 32px;
+	height: 36px;
+	width: 100%;
+	border: 1px solid #14D212;
+	border-radius: 10px;
+	float: right;
+	font-size: 18px;
+	color: #14D212;
+}
+
+.tel_div_info p {
+	font-size: 18px;
+	margin-top: 50px;
+	position: absolute;
+	min-width: 320px;
+}
+
+.yidong_div,.liantong_div,.dianxin_div {
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	line-height: 30px;
+	height: 30px;
+	width: 96%;
+	margin: 0px auto;
+	max-width: 1000px;
+}
+
+.yidong_div span,.liantong_div span,.dianxin_div span {
+	margin-left: 26px;
+}
+
+.yidong_div {
+	margin-top: 30px;
+	background-color: #0085D0;
+}
+
+.liantong_div {
+	background-color: #D61718;
+}
+
+.dianxin_div {
+	background-color: #195D94;
+}
+
+.lucky {
+	width: 90%;
+	margin: 0px auto;
+	max-width: 1000px;
+}
+
+ul,li {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+ul {
+	/* display: flex;
+	flex-direction: row;
+	flex-wrap: wrap; */
+}
+
+li {
+	width: 80px;
+	text-align: center;
+	margin-right: 5px;
+	margin-top: 20px;
+	/* flex: auto; */
+	height: 40px;
+	border-radius: 10px;
+	position: relative;
+	cursor: pointer;
+	float: left;
+}
+li.yd_li {
+	border: 1px solid #0085D0;
+	/* background-image: url("../images/yd_dj.png");
+	background-position:right -12px;
+	background-repeat: no-repeat; */
+}
+
+li.lt_li {
+	border: 1px solid #D61718;
+	/* background-image: url("../images/lt_dj.png");
+	background-position:right -12px;
+	background-repeat: no-repeat; */
+}
+
+li.dx_li {
+	border: 1px solid #195D94;
+	/* background-image: url("../images/dx_dj.png");
+	background-position:right -12px;
+	background-repeat: no-repeat; */
+}
+
+li span,li y {
+	display: block;
+	margin-top: 1px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.current_yd_li {
+	color: #fff;
+	background: rgba(0, 133, 208, 0.5);
+	background: #0085D0\9;
+	/*CSS Hack,只能对ie9以下浏览器ie6,ie7,ie8有效，否侧		ie10,FF,Cherome会失去透明效果*/
+	filter: Alpha(opacity = 50); /*只对ie7,ie8有效*/
+	border-color: #66B6E3;
+}
+
+.current_lt_li {
+	color: #fff;
+	background: rgba(214, 23, 24, 0.5);
+	background: #D61718\9;
+	/*CSS Hack,只能对ie9以下浏览器ie6,ie7,ie8有效，否侧		ie10,FF,Cherome会失去透明效果*/
+	filter: Alpha(opacity = 50); /*只对ie7,ie8有效*/
+	border-color: #EB8B8C;
+}
+
+.current_dx_li {
+	color: #fff;
+	background: rgba(25, 93, 148, 0.5);
+	background: #195D94\9;
+	/*CSS Hack,只能对ie9以下浏览器ie6,ie7,ie8有效，否侧		ie10,FF,Cherome会失去透明效果*/
+	filter: Alpha(opacity = 50); /*只对ie7,ie8有效*/
+	border-color: #8CAECA;
+}
+
+.pay_div {
+	background-color: #14D212;
+	color: #fff;
+	width: 100%;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	position: fixed;
+	bottom: 0px;
+	cursor: pointer;
+	max-width: 1000px;
+	left:0px;
+	right:0px;
+	margin-left:auto;
+	margin-right:auto;
+	min-width: 320px;
+}
+
+.public-bottom-div {
+	width: 100%;
+	height: 100px;
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+.bqTextDiv {
+	width: 260px;
+	color: #9c9c9c;
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px 0;
+}
+
+
+.yd_li .ribbon2 {
+    display: inline-block;
+    width: 20px;
+    padding: 5px 0;
+    background: #0085D0;
+    top: -6px;
+    left: 2px;
+    position: absolute;
+    text-align: center;
+    border-top-left-radius: 3px;
+    font-size: 12px;
+    color:#fff;
+}
+.yd_li .ribbon2:after {
+    height: 0;
+    width: 0;
+    border-left: 10px solid #0085D0;
+    border-right: 10px solid #0085D0;
+    border-bottom: 10px solid transparent;
+    bottom: -10px;
+    left: 0;
+}
+.yd_li .ribbon2:before, .ribbon2:after {
+    content: "";
+    position: absolute;
+}
+
+.lt_li .ribbon2 {
+    display: inline-block;
+    width: 20px;
+    padding: 5px 0;
+    background: #D61718;
+    top: -6px;
+    left: 2px;
+    position: absolute;
+    text-align: center;
+    border-top-left-radius: 3px;
+    font-size: 12px;
+    color:#fff;
+}
+.lt_li .ribbon2:after {
+    height: 0;
+    width: 0;
+    border-left: 10px solid #D61718;
+    border-right: 10px solid #D61718;
+    border-bottom: 10px solid transparent;
+    bottom: -10px;
+    left: 0;
+}
+.lt_li .ribbon2:before, .ribbon2:after {
+    content: "";
+    position: absolute;
+}
+
+.dx_li .ribbon2 {
+    display: inline-block;
+    width: 20px;
+    padding: 5px 0;
+    background: #195D94;
+    top: -6px;
+    left: 2px;
+    position: absolute;
+    text-align: center;
+    border-top-left-radius: 3px;
+    font-size: 12px;
+    color:#fff;
+}
+.dx_li .ribbon2:after {
+    height: 0;
+    width: 0;
+    border-left: 10px solid #195D94;
+    border-right: 10px solid #195D94;
+    border-bottom: 10px solid transparent;
+    bottom: -10px;
+    left: 0;
+}
+.dx_li .ribbon2:before, .ribbon2:after {
+    content: "";
+    position: absolute;
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ymkj.furniture.mapper.DesignerMapper">
+	<resultMap type="com.ymkj.furniture.entity.Designer" id="designer">
+		<id property="did" column="did"/>
+		<result property="dname" column="dname"/>
+		<result property="level" column="level"/>
+		<result property="address" column="address"/>
+		<result property="style" column="style"/>
+		<result property="idea" column="idea"/>
+		<result property="head" column="head"/>
+		<result property="phone" column="phone"/>
+		<result property="email" column="email"/>
+		<result property="pularval" column="pularval"/>
+		<result property="createDate" column="createDate"/>
+		<collection property="designer_case" column="did" ofType="com.ymkj.furniture.entity.Designer_case">
+			<id property="dcid" column="dcid"/>
+			<result property="dctitle" column="dctitle"/>
+			<result property="describe" column="describe"/>
+			<result property="model" column="model"/>
+			<result property="family" column="family"/>
+			<result property="name" column="name"/>
+			<result property="floorname" column="floorname"/>
+			<result property="addres" column="addres"/>
+			<result property="important" column="important"/>
+			<result property="size" column="size"/>
+			<result property="likestyle" column="likestyle"/>
+			<result property="likecolor" column="likecolor"/>
+			<result property="age" column="age"/>
+			<result property="ground" column="ground"/>
+			<result property="demand" column="demand"/>
+			<result property="follow" column="follow"/>
+			<result property="imgs" column="imgs"/>
+			<result property="recollections" column="recollections"/>
+			<result property="details" column="details"/>
+			<result property="createDate" column="createDate"/>
+		</collection >
+	</resultMap>
+	<!-- 查看所有设计师 -->
+	<select id="findDesigner" resultType="com.ymkj.furniture.entity.Designer">
+		select * from Designer limit #{begin},#{end}
+	</select>
+	<!-- 查看某设计师 -->
+	<select id="findDesignerByDid" resultType="com.ymkj.furniture.entity.Designer">
+		select * from Designer where did = #{did}
+	</select>
+	<!-- 查看设计师总数 -->
+	<select id="findDesignerCount" resultType="java.lang.Integer">
+		select count(1) from Designer
+	</select>
+	
+	<!-- 查看指定设计师及指定设计案例 -->	
+	<select id="findDesignerDataByid" resultMap="designer">
+		select * from designer d
+		left join designer_case dc on d.did=dc.did
+		where d.did = #{did} and dc.dcid = #{dcid}
+	</select>
+	
+	<!-- 按关注数量查看设计师及其设计案例     -->
+	<select id="findDesignerData" resultMap="designer">
+		select * from designer d
+		left join designer_case dc on d.did=dc.did
+		where dc.dcid is not null 
+		order by follow desc limit 9
+	</select>
+	
+</mapper>

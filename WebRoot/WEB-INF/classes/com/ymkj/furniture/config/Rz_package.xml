@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.Rz_packageMapper">
+	<resultMap type="com.ymkj.furniture.entity.Rz_package" id="rz_package">
+		<id property="rpid" column="rpid"/>
+		<result property="rpname" column="rpname"/>
+		<result property="rpprice" column="rpprice"/>
+		<result property="rpimg" column="rpimg"/>
+		<result property="minprice" column="minprice"/>
+		<result property="tab" column="tab"/>
+		<result property="rpstyle" column="rpstyle"/>
+		<result property="rpcolor" column="rpcolor"/>
+		<result property="rpidea" column="rpidea"/>
+		<result property="shelves" column="shelves"/>
+		<collection property="rz_package_projects" column="rpid" select="com.ymkj.admin.mapper.Rz_package_projectMapper.findRzProjectz" ofType="com.ymkj.furniture.entity.Rz_package_project"/>
+	</resultMap>
+	
+	<!-- 查看指定套餐 -->
+	<select id="findRzPackage" resultMap="rz_package">
+		select * from rz_package where rpid = #{rpid}
+	</select>
+</mapper>

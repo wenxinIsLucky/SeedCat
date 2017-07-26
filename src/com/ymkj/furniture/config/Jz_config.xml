@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ymkj.furniture.mapper.Jz_configMapper">
+	<resultMap type="com.ymkj.furniture.entity.Jz_config" id="jz_config">
+		<id property="jcid" column="jcid"/>
+		<result property="jcname" column="jcname"/>
+		<result property="jcimg" column="jcimg"/>
+		<result property="jpid" column="jpid"/>
+		<association property="jz_material" column="jcid" javaType="com.ymkj.furniture.entity.Jz_material">
+			<id property="rpiid" column="rpiid"/>
+			<result property="rpiimg" column="rpiimg"/>
+			<result property="rpiinfo" column="rpiinfo"/>
+		</association>
+		
+	</resultMap>
+	
+	<!-- 查看某家装下的所有配置  -->
+	<select id="findJzConfigz" resultMap="jz_config">
+		select * from jz_config where jpid = #{jpid}
+	</select>
+	<!-- 查看某家装套餐及其所有配置  -->
+	<select id="findJzCorJzM" resultMap="jz_config">
+		select * from jz_config jc
+		left join jz_material jm on jc.jcid = jm.jcid
+		where jc.jpid = #{jpid}
+	</select>
+	
+</mapper>

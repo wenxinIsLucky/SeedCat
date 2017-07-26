@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.admin.mapper.Rz_project_infoMapper">
+	<resultMap type="com.ymkj.furniture.entity.Rz_project_info" id="rz_project_info">
+		<id property="rpiid" column="rpiid"/>
+		<result property="rppid" column="rppid"/>
+		<result property="rpiimg" column="rpiimg"/>
+		<result property="rpiinfo" column="rpiinfo"/>
+	</resultMap>
+	
+	
+	<!-- 添加数据 -->
+	<insert id="addRzProjectInfo">
+		insert into rz_project_info(rpiid,rppid,rpiimg,rpiinfo) values(#{rpiid},#{rppid},#{rpiimg},#{rpiinfo})
+	</insert>
+	
+	<!-- 编辑项目详细点内容 -->
+	<update id="updRzRpojectInfo">
+		update rz_project_info set rpiimg = #{rpiimg},rpiinfo = #{rpiinfo} where rpiid = #{rpiid}
+	</update>
+</mapper>

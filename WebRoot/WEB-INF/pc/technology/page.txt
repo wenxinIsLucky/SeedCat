@@ -1,0 +1,8 @@
+classic_case				--经典案例
+classic_caseDetailed		--经典案例详细
+owners						--业主晒家
+ownersDetailed				--晒家
+right						--公用右侧
+seed_technology				--籽匠工艺
+technologytuDetailed		--图文详细
+technologyvideoDetailed		--视频详细

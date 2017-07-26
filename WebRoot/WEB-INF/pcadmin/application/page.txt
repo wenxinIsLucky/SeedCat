@@ -1,0 +1,3 @@
+home							--首页申请管理
+ruanzhuang						--软装申请装修管理
+yingzhuang                      --硬装预约定制管理

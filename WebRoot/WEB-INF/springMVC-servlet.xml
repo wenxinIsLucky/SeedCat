@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	 xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/cache 
+    http://www.springframework.org/schema/cache/spring-cache.xsd
+        http://www.springframework.org/schema/task     
+	http://www.springframework.org/schema/task/spring-task-3.0.xsd 
+    ">
+    
+    <mvc:annotation-driven>
+	    <mvc:path-matching suffix-pattern="false" />
+	 </mvc:annotation-driven>
+    <mvc:default-servlet-handler />  
+    <context:annotation-config />  
+      
+    <!-- 扫描所有的controller 但是不扫描service-->    
+    <!-- <context:component-scan base-package="com.wlsq">        
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />    
+    </context:component-scan>  -->
+    <!-- 自动扫描的包名 ，使Spring支持自动检测组件，如注解的Controller -->
+	<context:component-scan base-package="com.ymkj.*.controller" />
+	<!-- <context:component-scan base-package="com.ymkj.furniture.service.impl" />  -->
+    
+    <!-- 任务调度配置 -->
+    <task:executor id="executor" pool-size="5" />  
+  	<task:scheduler id="scheduler" pool-size="10" />  
+   	<task:annotation-driven executor="executor" scheduler="scheduler" />  
+
+	<!-- 字符编码拦截器 -->
+	<bean id="utf8Charset" class="java.nio.charset.Charset"
+		factory-method="forName">
+		<constructor-arg value="UTF-8" />
+	</bean>
+	
+	<!-- 启动运行 -->
+	<bean class="com.ymkj.furniture.qidong.Action"></bean>
+
+	<!-- 文件上传配置 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="maxUploadSize" value="204800000" />
+	</bean>
+
+
+	<!-- 启用spring mvc 注解 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg ref="utf8Charset" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- 拦截器静态资源不拦截 -->
+	<mvc:resources location="/pc/" mapping="/pc/**" />
+	<mvc:resources location="/pcadmin/" mapping="/pcadmin/**" />
+	<mvc:resources location="/static_img/" mapping="/static_img/**" />
+	<mvc:resources location="/ueditor/" mapping="/ueditor/**" />
+	<mvc:resources location="/setup/" mapping="/setup/**" />
+	
+	<!-- 拦截器 -->  
+      <mvc:interceptors>    
+        <!-- 多个拦截器,顺序执行     -->
+        <mvc:interceptor>    
+         <!--  如果不配置或/**,将拦截所有的Controller     --> 
+           <mvc:mapping path="/**" />
+           <mvc:mapping path="/**/**" />
+           <!-- 排除拦截的地址 -->
+           <!-- <mvc:exclude-mapping path="**.js"/>
+           <mvc:exclude-mapping path="**.css"/>
+           <mvc:exclude-mapping path="**.jpg"/>
+           <mvc:exclude-mapping path="**.png"/>
+           <mvc:exclude-mapping path="**.jpeg"/> -->
+           <!--   定义拦截器实现     -->
+           <bean class="com.ymkj.admin.common.Interceptor"></bean>    
+        </mvc:interceptor>    
+    </mvc:interceptors> 
+    
+	<!-- 启用缓存注解功能(请将其配置在Spring主配置文件中) -->
+	<cache:annotation-driven cache-manager="cacheManager" />
+	
+	<!-- 缓存配置 -->
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean name="baseCache"
+					class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+				<bean name="goodsCache"
+					class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+				<bean name="orderCache"
+					class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" />
+			</set>
+		</property>
+	</bean>
+
+
+
+	<!-- 视图解析器:定义跳转的文件的前后缀 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />  <!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> 
+		<property name="cacheSeconds" value="0" />
+     	<property name="messageConverters">
+        	<list>
+            	<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>  
+         	</list>
+     	</property>
+	</bean>
+</beans>   

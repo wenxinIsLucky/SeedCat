@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.admin.mapper.Rz_package_projectMapper">
+	<resultMap type="com.ymkj.furniture.entity.Rz_package_project" id="rz_package_project">
+		<id property="rppid" column="rppid"/>
+		<result property="rpid" column="rpid"/>
+		<result property="rppname" column="rppname"/>
+		<result property="rppimg" column="rppimg"/>
+		<result property="rppidea" column="rppidea"/>
+		<association property="project_info" column="rppid" javaType="com.ymkj.furniture.entity.Rz_project_info">
+			<id property="rpiid" column="rpiid"/>
+			<result property="rpiimg" column="rpiimg"/>
+			<result property="rpiinfo" column="rpiinfo"/>
+		</association>
+	</resultMap>
+	
+	<!-- 添加单条数据 -->
+	<insert id="addRzProject">
+		insert into rz_package_project (rppid,rpid,rppname,rppimg,rppidea) values(#{rppid},#{rpid},#{rppname},#{rppimg},#{rppidea})
+	</insert>
+	
+	<!-- 添加多条数据 -->
+	<insert id="addRzProjects">
+		insert into rz_package_project (rppid,rpid,rppname,rppimg,rppidea) values 
+		<foreach collection="list" item="r" index="index" separator=",">
+			(#{r.rppid},#{r.rpid},#{r.rppname},#{r.rppimg},#{r.rppidea})
+		</foreach>
+	</insert>
+	
+	<!-- 编辑项目内容 -->
+	<update id="updRzProject">
+		update rz_package_project set rppname = #{rppname},rppimg = #{rppimg},rppidea = #{rppidea} where rppid = #{rppid}
+	</update>
+	
+	<!-- 指定查看项目及详细 -->
+	<select id="findRzProject" resultMap="rz_package_project">
+		select * from rz_package_project rpp
+		left join rz_project_info rpi on rpp.rppid=rpi.rppid where rpp.rppid = #{rppid} and rpp.rpid = #{rpid}
+	</select>
+	
+	<!-- 指定查看项目及详细 -->
+	<select id="findRzProjectz" resultMap="rz_package_project">
+		select * from rz_package_project rpp
+		left join rz_project_info rpi on rpp.rppid=rpi.rppid where rpp.rpid = #{rpid}
+	</select>
+</mapper>

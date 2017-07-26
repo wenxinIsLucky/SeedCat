@@ -1,0 +1,149 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.houseGeomancy_zong_div{
+	width: 100%;
+}
+.clear{
+	clear: both;
+}
+.base{
+	width: 1100px;
+	margin: 20px auto;
+}
+.bt,.san{
+	width: 100%;
+}
+.bt h3,.sffs h3{
+	font-size: 24px;
+	color:#555;
+	margin-bottom: 10px;
+}
+.san .sanimg,.sfsf .sfsfimg{
+	width: 31.3%;
+	margin-right: 22px;
+	height: 260px;
+	float: left;
+}
+.san .ser,.sfsf .zxjj{
+	width: 31.3%;
+	float: left;
+	height: 260px;
+	margin-left: 15px;
+}
+
+.ser h3,.sembq h3{
+	font-size: 18px;
+	color:#ff4200;
+}
+
+.ser p{
+	font-size: 14px;
+	color:#333;
+}
+
+.ser p span{
+	color:#ff4200;
+	cursor: pointer;
+}
+.san .ser .ses .ses1{
+	margin-top: 15px;
+}
+.san .ser .ses .ses1 li{
+	float: left;
+	line-height: 26px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.san .ser .ses .ses1 li:nth-of-type(even){
+	margin-left:20px; 
+}
+
+.san .sembq,.sfsf .sffsjj{
+	width: 31.3%;
+	height: 260px;
+	float: right;
+}
+.san .sembq .sembqu{
+	width: 100%;
+}
+.san .sembq .sembqu li{
+	float: left;
+	font-size: 16px;
+	margin-left: 15px;
+	line-height: 26px;
+	cursor: pointer;
+}
+.san .ser .ses .ses1 li:hover,.san .sembq .sembqu li:hover{
+	color:#ff4200;
+}
+
+.sffs{
+	width:100%;
+	margin-top: 20px;
+}
+.sfsf,.zxjj .sfjj,.sffsjj{
+	width: 100%;
+}
+.zxjj .sfjj h3{
+	font-size: 18px;
+	color:#ff4200;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.zxjj .sfjj p{
+	font-size: 12px;
+	color:#333;
+}
+.zxjj .sfjj p span{
+	color:#ff4200;
+	cursor: pointer;
+}
+.sffsjj h3{
+	font-size: 14px;
+	color:#555;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.sffsjj h3 span:hover{
+	color:#ff4200;
+}
+.curr_fs{
+	color:#ff4200;
+}
+.sffsjj h3 span:not(:last-child){
+	margin-right: 5px;
+}
+
+.sffsjj .sffsjjp{
+	width: 100%;
+}
+.sffsjj .sffsjjp p{
+	font-size: 15px;
+	line-height: 26px;
+	cursor: pointer;
+}
+.sffsjj .sffsjjp p:hover{
+	color:#ff4200;
+}
+
+.ggt{
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.ggt .zb{
+	width:49%;
+	float: left;
+}
+.ggt .zb img,.ggt .yb img{
+	width: 100%;
+	height: 80px;
+}
+.ggt .yb{
+	width:49%;
+	float: right;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ymkj.furniture.mapper.Jz_materialMapper">
+	<resultMap type="com.ymkj.furniture.entity.Jz_material" id="jz_material">
+		<id property="jmid" column="jmid"/>
+		<result property="jmname" column="jmname"/>
+		<result property="materialinfo" column="materialinfo"/>
+		<result property="materialexplain" column="materialexplain"/>
+		<result property="jcid" column="jcid"/>		
+	</resultMap>
+	<!-- 查看所有材料 -->
+	<select id="findJzmaterials" resultMap="jz_material">
+		select * from jz_material 
+	</select>
+	
+	<!-- <insert id="addJzmaterial">
+		insert into jz_material (jmid,jmname,materialinfo,materialexplain,jcid) values(#{jmid},#{jmname},#{materialinfo},#{materialexplain},#{jcid})
+	</insert>
+	
+	<update id="updateJzmaterial">
+		update jz_material set jmname=#{jmname},materialinfo=#{materialinfo},materialexplain=#{materialexplain},jcid=#{jcid} where jmid = #{jmid}
+	</update> 
+	
+	
+	
+	<select id="findJzmaterial" resultType="com.ymkj.furniture.entity.Jz_material">
+		select * from jz_material where jmid = #{jmid}
+	</select>-->
+	
+	<!--  <delete id="delJzmaterial">
+		delete from jz_material where jmid = #{jmid}
+	</delete> -->
+		
+	
+	<!--<select id="deleteJzPackage" statementType="CALLABLE" parameterType="java.util.HashMap">
+		<![CDATA[
+			{call proc_del_jz(
+				#{in_jpid,mode=IN,jdbcType=VARCHAR},
+				#{result,mode=OUT,jdbcType=INTEGER}
+			)}
+		]]>
+	</select> -->
+</mapper>

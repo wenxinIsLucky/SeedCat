@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.Home_cultureMapper">
+	<resultMap type="com.ymkj.furniture.entity.Home_culture" id="home_culture">
+		<id property="hcid" column="hcid"/>
+		<result property="title" column="title"/>
+		<result property="type" column="type"/>
+		<result property="author" column="author"/>
+		<result property="cover" column="cover"/>
+		<result property="content" column="content"/>
+		<result property="zan" column="zan"/>
+		<result property="collection" column="collection"/>
+		<result property="browse" column="browse"/>
+		<result property="createDate" column="createDate"/>
+		<result property="dataCount" column="dataCount"/>
+		<result column="parentId" property="parentId" />
+	    <result column="parentTitle" property="parentTitle" />
+	    <result column="nextId" property="nextId" />
+	    <result column="nextTitle" property="nextTitle" />
+	    <result column="fid" property="fid" />
+	    <result column="ccid" property="ccid" />
+	</resultMap>
+	
+	<!-- 分页查看每个类型的数据 -->
+	<select id="findHomeCultureAll" resultMap="home_culture">
+		select *,(select count(1) from home_culture where type = #{type}) dataCount from home_culture where type = #{type} order by createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 查看详细 -->
+	<select id="findHomeCultureInfo" resultMap="home_culture">
+		<![CDATA[
+			select h.*,p.hcid parentId,p.title parentTitle,n.hcid nextId,n.title nextTitle,count(f.fid) fid,count(cc.ccid) ccid
+		from home_culture h
+		left join (select * from home_culture where hcid < #{hcid} and type = #{type} having MAX(hcid)) p on 1=1
+		left join (select * from home_culture where hcid > #{hcid} and type = #{type} having MIN(hcid)) n on 1=1
+		left join fabulous f on h.hcid=f.cid 
+		left join community_collection cc on h.hcid=cc.cid 
+		where h.hcid = #{hcid}
+		]]>
+	</select>
+	
+	<!-- 前几的最新文章 -->
+	<select id="findHomeCultureByDate" resultMap="home_culture">
+		select * from home_culture order by createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 前几的推荐文章 -->
+	<select id="findHomeCultureByTuiJian" resultMap="home_culture">
+		select * from home_culture order by zan desc limit #{start},#{size}
+	</select>
+	
+	<!-- 新增浏览数,赞数,收藏数 -->
+	<update id="updHomeCultureAllCount">
+		update home_culture set ${param} = ${param}+1 where hcid = #{hcid}
+	</update>
+	
+	<!-- 新增文章 -->
+	<insert id="addHomeCulture">
+		insert into home_culture(title,type,author,cover,content) values(#{title},#{type},#{author},#{cover},#{content})
+	</insert>
+</mapper>

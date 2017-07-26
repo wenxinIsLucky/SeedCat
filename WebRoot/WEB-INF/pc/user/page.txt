@@ -1,0 +1,16 @@
+fans						--我的粉丝
+follow						--我关注的人
+image						--公用背景和侧边栏
+index						--我的主页
+mypost						--我的拍客
+myrenovation				--我的装修
+mysun						--我的晒家
+message_plhf				--消息通知--评论回复
+message_sys					--消息通知--系统通知
+message_zan					--消息通知--赞
+mycollection				--我的收藏
+mydata						--我的资料
+post						--发表拍客
+sun							--发表晒家
+visitor						--我的访客
+wallet						--我的钱包

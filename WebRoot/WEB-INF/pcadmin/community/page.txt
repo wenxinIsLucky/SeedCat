@@ -1,0 +1,3 @@
+post						--添加话题
+show_post_ht				--话题显示
+show_post					--拍客显示

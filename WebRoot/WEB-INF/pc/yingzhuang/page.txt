@@ -1,0 +1,2 @@
+jzCustom			          硬装首页
+jzCustomDetail			硬装详情

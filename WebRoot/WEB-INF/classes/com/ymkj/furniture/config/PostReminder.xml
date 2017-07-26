@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.PostReminderMapper">
+	<resultMap type="com.ymkj.furniture.entity.PostReminder" id="postReminder">
+		<id property="prid" column="prid"/>
+		<result property="tuid" column="tuid"/>
+		<result property="yuid" column="yuid"/>
+		<result property="luid" column="luid"/>
+		<result property="wzid" column="wzid"/>
+		<result property="content" column="content"/>
+		<result property="hfType" column="hfType"/>
+		<result property="title" column="title"/>
+		<result property="floor" column="floor"/>
+		<result property="createDate" column="createDate"/>
+		<result property="countNum" column="countNum"/>
+		<result property="cover" column="cover"/>
+		<result property="system" column="system"/>
+		<result property="tname" column="tname"/>
+		<result property="thead" column="thead"/>
+		<result property="yname" column="yname"/>
+		<result property="yhead" column="yhead"/>
+		<result property="lname" column="lname"/>
+		<result property="lhead" column="lhead"/>
+	</resultMap>
+	<!-- 分页查看评论提醒 -->
+	<select id="findPostReminderByPage" resultMap="postReminder">
+		select distinct p.prid,p.*,c.cover,cc.system,tu.`name` tname,tu.head thead,yu.`name` yname,yu.head yhead,lu.`name` lname,lu.head lhead,(
+			select count(1) from postReminder where 1=1
+		<choose>
+			<when test="type==0"> and yuid=#{uid}</when><!-- 我的评论 -->
+			<when test="type==1"> and tuid=#{uid}</when><!-- 收到的评论 -->
+		</choose>
+		) countNum from postReminder p
+		left join community c on p.wzid=c.cid 
+		left join `comment` cc on p.wzid=cc.wzid 
+		left join `user` tu on p.yuid=tu.uid
+		left join `user` yu on p.yuid=yu.uid
+		left join `user` lu on p.yuid=lu.uid 
+		where 1=1
+		<choose>
+			<when test="type==0"> and yuid=#{uid}</when><!-- 我的评论 -->
+			<when test="type==1"> and tuid=#{uid}</when><!-- 收到的评论 -->
+		</choose>
+		limit #{start},#{size}
+	</select>
+	
+	<!-- 查看评论提醒总记录数 -->
+	<select id="findPostReminderCountNum" resultType="java.lang.Integer">
+		select count(1) from postReminder where 1=1
+		<choose>
+			<when test="type==0"> and yuid=#{uid}</when><!-- 我的评论 -->
+			<when test="type==1"> and tuid=#{uid}</when><!-- 收到的评论 -->
+		</choose>
+	</select>
+</mapper>

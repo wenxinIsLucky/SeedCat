@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ymkj.furniture.mapper.Classic_caseMapper">
+	<resultMap id="classic_case" type="com.ymkj.furniture.entity.Classic_case">
+		<id column="ccid" property="ccid" />
+		<result column="title" property="title" />
+		<result column="type" property="type" />
+		<result column="author" property="author" />
+		<result column="cover" property="cover" />
+		<result column="price" property="price" />
+		<result column="zan" property="zan" />
+		<result column="collection" property="collection" />
+		<result column="browse" property="browse" />
+		<result column="createDate" property="createDate" />
+		<result column="dataCount" property="dataCount" />
+	    <result column="parentId" property="parentId" />
+	    <result column="parentTitle" property="parentTitle" />
+	    <result column="nextId" property="nextId" />
+	    <result column="nextTitle" property="nextTitle" />
+	    <result column="fid" property="fid" />
+	    <result column="scid" property="scid" />
+	</resultMap>
+	<!-- 添加籽匠工艺文章 -->
+  <insert id="addClassicCase">
+  	insert into classic_case(ccid,title,type,author,price,cover,content) values(#{ccid},#{title},#{type},#{author},#{price},#{cover},#{content})
+  </insert>
+  
+  <!-- 分页查看籽匠工艺文章 -->
+  <select id="findClassicCaseByType" resultMap="classic_case">
+  	select *,(select count(1) from classic_case where type=#{type}) dataCount from classic_case where type=#{type} order by createDate desc limit #{start},#{size}
+  </select>
+  
+  <!-- 查看详细 -->
+  <select id="findClassicCaseDetailed" resultMap="classic_case">
+  	<![CDATA[
+  		select c.*,p.ccid parentId,p.title parentTitle,n.ccid nextId,n.title nextTitle,count(f.fid) fid,count(cc.ccid) scid
+		from classic_case c
+		left join (select * from classic_case where createDate < (select createDate from classic_case where ccid = #{ccid}) and type = #{type} having MAX(createDate)) p on 1=1
+		left join (select * from classic_case where createDate > (select createDate from classic_case where ccid = #{ccid}) and type = #{type} having MIN(createDate)) n on 1=1
+		left join fabulous f on c.ccid=f.cid 
+		left join community_collection cc on c.ccid=cc.cid 
+		where c.ccid = #{ccid}
+  	]]>
+  </select>
+  
+  <!-- 修改籽匠工艺文章 -->
+  <update id="updClassicCaseContent">
+  	update classic_case set title=#{title},type=#{type},author=#{author},price=#{price},cover=#{cover},content=#{content} where ccid = #{ccid}
+  </update>
+  
+  <!-- 新增浏览数,赞数,踩数,收藏数 -->
+	<update id="updclassic_caseAllCount">
+		update classic_case set ${param} = ${param}+1 where ccid = #{ccid}
+	</update>
+</mapper>

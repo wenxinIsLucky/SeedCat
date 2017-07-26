@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.admin.mapper.CommunityMapper">
+	<resultMap type="com.ymkj.furniture.entity.Community" id="community">
+		<id property="cid" column="cid"/>
+		<result property="title" column="title"/>
+		<result property="type" column="type"/>
+		<result property="cover" column="cover"/>
+		<result property="content" column="content"/>
+		<result property="zan" column="zan"/>
+		<result property="cai" column="cai"/>
+		<result property="collection" column="collection"/>
+		<result property="browse" column="browse"/>
+		<result property="reply" column="reply"/>
+		<result property="examine" column="examine"/>
+		<result property="isAdd" column="isAdd"/>
+		<result property="createDate" column="createDate"/>
+		<association property="user" column="uid" javaType="com.ymkj.furniture.entity.User">
+			<id property="uid" column="uid"/>
+			<result property="name" column="name"/>
+			<result property="head" column="head"/>
+		</association>
+	</resultMap>
+	<!-- 审核 -->
+	<update id="updCommunityType">
+		update community set examine = #{examine} where binary cid = #{cid}
+	</update>
+	
+	<!-- 加精或取消加精 -->
+	<update id="updCommunityByIsAdd">
+		update community set isAdd = #{isAdd} where binary cid = #{cid}
+	</update>
+</mapper>

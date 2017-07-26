@@ -1,0 +1,8 @@
+fans						--他的粉丝
+follow						--他关注的人
+hedata						--他的资料
+hepost						--他的拍客
+hesun						--他的晒家
+home						--他的主页
+left						--公用侧边栏
+visitor						--他的访客

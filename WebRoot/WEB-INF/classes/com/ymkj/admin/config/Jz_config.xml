@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ymkj.admin.mapper.Jz_configMapper">
+	<resultMap type="com.ymkj.furniture.entity.Jz_config" id="jz_config">
+		<id property="jcid" column="jcid"/>
+		<result property="jcname" column="jcname"/>
+		<result property="jcimg" column="jcimg"/>
+		<result property="jpid" column="jpid"/>
+		<collection property="jz_material" column="jcid" javaType="com.ymkj.furniture.entity.Jz_material" >
+			<id property="jmid" column="jmid"/>
+			<result property="jmname" column="jmname"/>
+			<result property="materialinfo" column="materialinfo"/>
+			<result property="materialexplain" column="materialexplain"/>
+		</collection>
+		
+	</resultMap>
+	<!-- 新增家装配置 -->
+	<insert id="addJzConfig">
+		insert into jz_config (jcid,jcname,jcimg,jpid) values(#{jcid},#{jcname},#{jcimg},#{jpid})
+	</insert>
+	<!-- 查看指定套餐内配置详情 -->
+	<select id="findJzConfig" resultMap="jz_config">
+		select * from jz_config where jpid = #{jpid}
+	</select>
+	<!-- 查看指定套餐内指定配置的详情 -->
+	<select id="findAppointJzPorJzC" resultMap="jz_config">
+		select * from jz_config where jcid = #{jcid} and jpid = #{jpid}
+	</select>
+	<!-- 编辑指定套餐内指定的配置的详情 -->
+	<update id="updateAppointJzPorJzC">
+		update jz_config set jcname = #{jcname},jcimg = #{jcimg} where jcid = #{jcid} and jpid = #{jpid}
+	</update>
+</mapper>

@@ -1,0 +1,321 @@
+* {
+	margin: 0 auto;
+	padding: 0;
+}
+
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input:-webkit-autofill,select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+.tsSelect{
+	width: 110px;
+	height: 34px;
+	border-radius:10px;
+}
+.o2o_zong_div {
+	width: 100%;
+}
+
+.base {
+	margin: 0 auto;
+	width: 1200px;
+}
+
+.base img {
+	border: 0;
+	display: block;
+	margin: 0 auto;
+}
+
+body {
+	background: url(../images/oo2.jpg) repeat-y;
+}
+
+.zx {
+	width: 1118px;
+	height: 243px;
+	background: #bf3329;
+	border-radius: 20px;
+	position: relative;
+	top: 100px;
+}
+
+.zxe {
+	padding-top: 18px;
+	float: left;
+	margin-right: 92px;
+}
+
+.zx .zxp {
+	font-size: 28px;
+	color: #fff;
+	width: 189px;
+	height: 56px;
+	border: 3px solid #fff;
+	border-radius: 20px;
+	line-height: 56px;
+	text-align: center;
+	background: #bf3329;
+	margin-left: 236px;
+}
+
+.zxd {
+	margin-left: 173px;
+	margin-top: -32px;
+}
+
+.zxd p {
+	position: relative;
+	top: -140px;
+	font-size: 18px;
+	color: #fff;
+	line-height: 35px;
+	margin-left: 10px;
+}
+.zxd p .o2o_time{
+	width: 90px;
+	display: inline-block;
+}
+.zxd p .o2o_userName{
+	width: 80px;
+	display: inline-block;
+}
+.zxd p .o2o_userPhone{
+	width: 100px;
+	display: inline-block;
+}
+
+.zxr {
+	padding-top: 60px;
+	line-height: 50px;
+}
+
+.zxr p {
+	font-size: 18px;
+	color: #fff;
+}
+
+.zxrp {
+	background: #c4281c;
+	width: 355px;
+	height: 44px;
+	font-size: 24px !important;
+	color: #fff !important;
+	line-height: 44px;
+	border-radius: 20px;
+	border-bottom: 5px solid #8d0104;
+	text-align: center;
+	margin-right: 188px;
+	/* position: absolute;
+	right: 188px; */
+	cursor: pointer;
+	display: block;
+}
+
+.jms {
+	margin-top: 120px;
+	margin-left: 40px;
+}
+
+.jms li {
+	float: left;
+	width: 180px;
+	height: 70px;
+	background: #560202;
+	border: 8px solid #db2323;
+	border-radius: 20px;
+	font-size: 28px;
+	color: #fff;
+	text-align: center;
+	line-height: 70px;
+}
+
+.jms .jmsl {
+	margin-right: 35px;
+}
+
+.yylwe {
+	width: 1052px;
+	/* height: 877px; */
+	background: #9c0505;
+}
+
+.yylwep img {
+	margin-top: 20px;
+}
+
+.yylwep1 {
+	font-size: 26px;
+	color: #fff;
+	text-align: center;
+	line-height: 60px;
+}
+
+.yylwep2 {
+	font-size: 36px;
+	color: #fea000;
+	text-align: center;
+	line-height: 60px;
+}
+
+.yylwep3 {
+	width: 435px;
+	height: 60px;
+	background: #fea000;
+	border-bottom: 6px solid #bb7704;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 32px;
+	color: #fff;
+	line-height: 60px;
+	margin-top: 34px;
+}
+
+.yylwep4 {
+	font-size: 32px;
+	color: #fff;
+	line-height: 60px;
+	margin-left: 60px;
+}
+
+.yylwes {
+	height: 753px;
+}
+
+.yylwes1 {
+	height: 650px;
+}
+
+.yu {
+	margin-left: 160px;
+}
+
+.yu li {
+	float: left;
+	margin-top: 20px;
+}
+
+.yul {
+	margin-right: 5px;
+}
+
+.yup {
+	font-size: 24px;
+	color: #fff;
+	height: 83px;
+	background: #343434;
+	margin-top: 170px;
+	text-align: center;
+	line-height: 83px;
+}
+
+.yylwea {
+	height: 800px;
+}
+
+.yylwesq {
+	height: 750px;
+}
+
+.yu22 li {
+	float: left;
+}
+
+.yu22 .yu2 {
+	margin-right: 5px;
+}
+
+.yyyu3 {
+	width: 435px;
+	height: 60px;
+	background: #fea000;
+	border-bottom: 6px solid #bb7704;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 32px;
+	color: #fff;
+	line-height: 60px;
+	margin-top: 372px;
+	cursor: pointer;
+}
+
+.yylwesqq {
+	height: 2000px;
+}
+
+.yyyu4 {
+	margin-top: 100px;
+}
+
+.jmlc img {
+	margin-top: 40px;
+}
+
+.ll img {
+	float: left;
+}
+
+.se {
+	font-size: 42px;
+	color: #fff;
+	margin-left: 600px;
+	margin-top: 20px;
+}
+
+.see {
+	font-size: 25px;
+	color: #fff;
+	margin-left: 600px;
+	margin-top: 20px;
+}
+
+.ybjerp {
+	font-size: 24px;
+	color: #fff;
+	margin-left: 600px;
+	line-height: 50px;
+}
+
+.ybjerp input {
+	border-radius: 20px;
+	width: 236px;
+	height: 36px;
+	font-size: 20px;
+}
+
+.yzh {
+	margin-left: 600px;
+	margin-top: 30px;
+}
+
+.cjxm {
+	margin-top: 50px;
+}
+
+.fhdb{
+	width: 40px;
+	height: 40px;
+	background-color: #fff;
+	font-size: 14px;
+	cursor: pointer;
+	color: #000;
+	border: 1px solid #ccc;
+	text-align: center;
+	z-index: 999;
+	float: right;
+    margin-right: -50px;
+	margin-top: -55px;
+}
+}

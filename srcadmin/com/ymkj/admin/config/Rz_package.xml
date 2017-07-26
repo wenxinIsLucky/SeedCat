@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.admin.mapper.Rz_packageMapper">
+	<resultMap type="com.ymkj.furniture.entity.Rz_package" id="rz_package">
+		<id property="rpid" column="rpid"/>
+		<result property="rpname" column="rpname"/>
+		<result property="rpprice" column="rpprice"/>
+		<result property="rpimg" column="rpimg"/>
+		<result property="minprice" column="minprice"/>
+		<result property="tab" column="tab"/>
+		<result property="rpstyle" column="rpstyle"/>
+		<result property="rpcolor" column="rpcolor"/>
+		<result property="rpidea" column="rpidea"/>
+		<result property="shelves" column="shelves"/>
+		<collection property="rz_package_projects" column="rpid" select="com.ymkj.admin.mapper.Rz_package_projectMapper.findRzProjectz" ofType="com.ymkj.furniture.entity.Rz_package_project"/>
+	</resultMap>
+	<!-- 添加单条数据 -->
+	<insert id="addRzProject">
+		insert into rz_package (rpid,rpname,rpprice,rpimg,minprice,tab,rpstyle,rpcolor,rpidea) values(#{rpid},#{rpname},#{rpprice},#{rpimg},#{minprice},#{tab},#{rpstyle},#{rpcolor},#{rpidea})
+	</insert>
+	
+	<!-- 查询套餐下面的项目和项目详细 -->
+	<select id="findRzPackageProject" resultType="com.ymkj.furniture.entity.Rz_package_project">
+		select * from rz_package_project rpp
+		left join rz_project_info rpi on rpp.rppid = rpi.rppid
+		where rpp.rpid = #{rpid}
+	</select>
+	
+	<!-- 查看指定套餐 -->
+	<select id="findRzPackage" resultMap="rz_package">
+		select * from rz_package where rpid = #{rpid}
+	</select>
+	
+	<!-- 查看套餐集合 -->
+	<select id="findRzPackages" resultMap="rz_package">
+		select * from rz_package rp
+		left join rz_package_project rpp on rp.rpid=rpp.rpid
+		group by rp.rpid order by rp.createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 查看上架的套餐集合 -->
+	<select id="findRzPackageShangJia" resultMap="rz_package">
+		select * from rz_package where shelves = 1 order by createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 上下架 -->
+	<update id="updRzPackageShangXiaJia">
+		update rz_package set shelves=#{shelves} where rpid = #{rpid}
+	</update>
+	
+	<!-- 删除套餐 -->
+	<select id="delRzPackage" statementType="CALLABLE" parameterType="java.util.HashMap">
+		<![CDATA[
+		{call proc_del_rz(
+			#{in_rpid,mode=IN,jdbcType=VARCHAR},
+			#{result,mode=OUT,jdbcType=INTEGER}
+		)}]]>
+	</select>
+	
+	<!-- 修改套餐基本内容 -->
+	<update id="updRzPackage">
+		update rz_package set rpname=#{rpname},rpprice=#{rpprice},rpimg=#{rpimg},minprice=#{minprice},tab=#{tab},rpstyle=#{rpstyle},rpcolor=#{rpcolor},rpidea=#{rpidea} where rpid = #{rpid}
+	</update>
+</mapper>

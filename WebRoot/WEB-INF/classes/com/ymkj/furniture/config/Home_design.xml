@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.Home_designMapper">
+	<resultMap type="com.ymkj.furniture.entity.Home_design" id="home_design">
+		<id property="hdid" column="hdid"/>
+		<result property="name" column="name"/>
+		<result property="phone" column="phone"/>
+		<result property="handle" column="handle"/>
+		<result property="doorDate" column="mdoorDatees"/>
+		<result property="errorMsg" column="errorMsg"/>
+		<result property="createDate" column="createDate"/>
+		<result property="dataCount" column="dataCount"/>
+	</resultMap>
+	
+	<!-- 添加申请表 -->
+	<insert id="addHome_design">
+		insert into home_design(`name`,phone) values(#{name},#{phone})
+	</insert>
+	
+	<!-- 查看申请表 -->
+	<select id="findHome_design" resultMap="home_design">
+		select *,(select count(1) from home_design where handle = #{handle}) as dataCount from home_design where handle = #{handle} limit #{start},#{size}
+	</select>
+	
+	<!--  操作申请表 -->
+	<update id="updHome_design">
+		update home_design set handle = #{handle},errorMsg = #{errorMsg}
+		<if test="doorDate!=''">
+			,doorDate = #{doorDate}
+		</if>
+		 where hdid = #{hdid}
+	</update>
+	
+	<!-- 删除操作表 -->
+	<delete id="delHome_design">
+		delete from home_design where hdid = #{hdid}
+	</delete>
+</mapper>

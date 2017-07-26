@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.Apply_for_decorationMapper">
+	<resultMap type="com.ymkj.furniture.entity.Apply_for_decoration" id="apply_for_decoration">
+		<id property="afdid" column="afdid"/>
+		<result property="contacts" column="contacts"/>
+		<result property="phone" column="phone"/>
+		<result property="sheng" column="sheng"/>
+		<result property="shi" column="shi"/>
+		<result property="layout" column="layout"/>
+		<result property="has" column="has"/>
+		<result property="style" column="style"/>
+		<result property="mes" column="mes"/>
+		<result property="handle" column="handle"/>
+		<result property="doorDate" column="mdoorDatees"/>
+		<result property="errorMsg" column="errorMsg"/>
+		<result property="createDate" column="createDate"/>
+		<result property="dataCount" column="dataCount"/>
+	</resultMap>
+	
+	<!-- 添加申请装修表 -->
+	<insert id="addApplyForDecoration">
+		insert into apply_for_decoration(contacts,phone,sheng,shi,layout,has,style,mes) 
+		values(#{contacts},#{phone},#{sheng},#{shi},#{layout},#{has},#{style},#{mes})
+	</insert>
+	
+	<!-- 查看申请装修表 -->
+	<select id="findApplyForDecoration" resultMap="apply_for_decoration">
+		select *,(select count(1) from apply_for_decoration where handle = #{handle}) as dataCount from apply_for_decoration where handle = #{handle} limit #{start},#{size}
+	</select>
+	
+	<!--  操作装修申请表 -->
+	<update id="updApplyForDecoration">
+		update apply_for_decoration set handle = #{handle},errorMsg = #{errorMsg}
+		<if test="doorDate!=''">
+			,doorDate = #{doorDate}
+		</if>
+		 where afdid = #{afdid}
+	</update>
+	
+	<!-- 删除申请表 -->
+	<delete id="delApplyForDecoration">
+		delete from apply_for_decoration where afdid = #{afdid}
+	</delete>
+</mapper>

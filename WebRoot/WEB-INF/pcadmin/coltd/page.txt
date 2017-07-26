@@ -1,0 +1,2 @@
+address						--公司地址
+coltd_culture				--公司文化

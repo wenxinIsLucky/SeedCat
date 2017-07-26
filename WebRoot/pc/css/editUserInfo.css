@@ -1,0 +1,294 @@
+/* * {
+	margin: 0;
+	padding: 0;
+} */
+
+ul {
+	list-style: none;
+}
+
+a,a:link,a:visited,a:hover,a:active {
+	text-decoration: none;
+}
+
+/* .edit_userinfo_div {
+	width: 1000px;
+	border: 1px solid #eee;
+	margin: 20px auto;
+	height: 660px;
+} */
+
+.edit_list_title {
+	width: 160px;
+	float: left;
+	border-right: 1px solid #eee;
+	height: 100%;
+}
+
+/* .edit_context {
+	width: 839px;
+	float: right;
+} */
+
+.login_name_Administration {
+	margin: 10px;
+}
+
+.head_img {
+	width: 120px;
+	height: 120px;
+	margin: 0 auto;
+}
+
+.head_img img {
+	width: 100%;
+}
+
+.edit_ul {
+	width: 100%;
+	color: #555;
+}
+
+.edit_ul li {
+	line-height: 26px;
+	height: 28px;
+	padding-left: 20px;
+	cursor: pointer;
+}
+
+.edit_ul li:hover {
+	background-color: #eee;
+	color: #000;
+}
+
+.eee {
+	background-color: #eee;
+	color: #000;
+}
+
+.userpass_div,.jypass_div {
+	width: 100%;
+	display: none;
+}
+
+.tab_div {
+	/* width: 100%; */
+	font-size: 14px;
+	height: 28px;
+	margin-top: 10px;
+	line-height: 28px;
+	border-bottom: 1px solid #ccc;
+}
+
+.tab_div li {
+	width: 10%;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	text-align: center;
+	border-bottom: 2px solid #ffffff;
+	margin-left: 20px;
+}
+
+.tab_a_div,.tab_p_div,.tab_j_div {
+	/* width: 100%; */
+	font-size: 14px;
+	height: 36px;
+	border-bottom: 1px solid #ccc;
+}
+
+.tab_a_div li,.tab_p_div li,.tab_j_div li {
+	width: 15%;
+	text-align: center;
+	float: left;
+	margin-top: 5px;
+	margin-left: 10px;
+	/* height: 26px; */
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.tab_a_div li:hover,.tab_p_div li:hover,.tab_j_div li:hover{
+	border-top:1px solid #ccc;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #fff;
+}
+
+.tab_a_div li a ,.tab_p_div li a,.tab_j_div li a{
+	color: #555;
+}
+
+.curr_a_hover {
+	border-top:1px solid #ccc;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #fff;
+}
+
+.curr_a_click {
+	font-weight: bold;
+	border-top:1px solid #ccc;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #fff;
+}
+
+.pass_palan {
+	margin-top: 40px;
+}
+
+.login_pass {
+	width: 240px;
+	margin: 0 auto;
+	height: 60px;
+	/* line-height: 60px; */
+}
+
+.login_pass span {
+	color: #555;
+	display: inline;
+	float: right;
+	margin-right: 165px;
+}
+
+.login_pass input {
+	height: 24px;
+	/* margin-top: -46px; */
+	margin-top: -20px;
+	margin-left: 90px;
+	width: 180px;
+}
+
+.div_button {
+	width: 100px;
+	border: 1px solid #FF4200;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	border-radius: 10px;
+	margin-top:20px;
+	margin-bottom:20px;
+	cursor: pointer;
+}
+
+.img_bc{
+	margin-left: 50px;
+}
+
+.div_button_auto{
+	width: 100px;
+	border: 1px solid #FF4200;
+	height: 34px;
+	text-align: center;
+	line-height: 34px;
+	border-radius: 10px;
+	margin:20px auto;
+	cursor: pointer;
+}
+
+.div_button:active {
+	background-color: #FF4200;
+	color:#ffffff;
+}
+
+.userinfo_div{
+	width: 100%;
+}
+
+.info_palan{
+	width: 60%;
+	margin:0 auto;
+}
+.user_info_div_img{
+	color:#555;
+	font-size: 14px;
+	height: 100px;
+	margin-top: 20px;
+}
+.user_info_div_img img{
+	width: 80px;
+	vertical-align: top;
+}
+
+.head_palan{
+	width: 838px;
+	/* position: absolute; */
+	display: none;
+}
+.editHead{
+	font-size: 14px;
+	width: 80px;
+	text-align: center;
+	margin: -20px 0px 0px 63px;
+	z-index: 99999;
+	position: relative;
+	background:rgba(0,0,0,0.5);
+   	background:#000\9;/*CSS Hack,只能对ie9以下浏览器ie6,ie7,ie8有效，否侧ie10,FF,Cherome会失去透明效果*/
+   	filter:Alpha(opacity=50);/*只对ie7,ie8有效*/
+   	color:#eee;
+   	cursor: pointer;
+   	height: 22px;
+   	line-height: 22px;
+}
+.currAddress{
+	width: 320px;
+	height: 60px;
+	line-height: 60px;
+}
+.currAddress span{
+	color:#555;
+}
+.tsSelect{
+	width: 100px;
+	height: 24px;
+}
+tr{
+	height: 60px;
+}
+th{
+	font-weight: 100;
+	color:#555;
+	text-align: right;
+}
+.lucky_input{
+	width: 200px;
+	height: 24px;
+	border: 1px solid #555;
+	border-radius:10px;
+	outline:none;
+}
+.lucky_input:focus{
+	border: 1px solid #ff4200;
+	border-radius:10px;
+}
+.jy_pass_div{
+	width: 50%;
+	margin:40px auto 0px auto;
+}
+
+.fieldset {
+	width: 97%;
+	padding: 10px;
+	color: #333;
+	/* border-top: #F88D23 dashed 1px;
+	margin-top: -10px;
+	border-left: #F88D23 dashed 1px;
+	border-right: #F88D23 dashed 1px; */
+	border:#ccc solid 1px;
+}
+
+.legend {
+	color: #565656;
+	font-weight: 800;
+}
+
+.gailou {
+	word-wrap: break-word;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.StepMapper">
+	<resultMap type="com.ymkj.furniture.entity.Step" id="step">
+		<id property="sid" column="sid"/>
+		<result property="uid" column="uid"/>
+		<result property="ipadd" column="ipadd"/>
+		<result property="cid" column="cid"/>
+		<result property="createDate" column="createDate"/>
+	</resultMap>
+	<!-- 新增踩 -->
+	<insert id="addStep">
+		insert into step(uid,ipadd,cid) values(#{uid},#{ipadd},#{cid})
+	</insert>
+</mapper>

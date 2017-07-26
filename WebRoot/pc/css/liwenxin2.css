@@ -1,0 +1,253 @@
+/* ----------------提示框---------------- */
+.error_mask {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	_position: absolute;
+	top: 0;
+	z-index: 1000;
+}
+.error_opacity {
+	opacity: 0.3;
+	filter: alpha(opacity = 30);
+	background-color: #000;
+}
+.error_content {
+	width: 300px;
+	overflow: auto;
+	border: 2px solid #ccc;
+	background-color: #fff;
+	position: fixed;
+	top: 40%;
+	z-index: 1001;
+	word-wrap: break-word;
+	padding: 3px;
+	border-radius:10px;
+	left:0px;
+	right:0px;
+	margin-left:auto;
+	margin-right:auto;
+	min-width: 300px;
+}
+
+.error_datetime_content {
+	overflow: auto;
+	border: 2px solid #ccc;
+	background-color: #fff;
+	position: fixed;
+	/* top: 40%;
+	left: 40%; */
+	z-index: 1001;
+	word-wrap: break-word;
+	padding: 3px;
+	border-radius:10px;
+	width: 300px;
+	min-width: 300px;
+	left:0;
+	top:40%;
+	/* bottom:0; */
+	right:0;
+	margin:auto;
+}
+
+.error_span_title{
+	margin-left:10px;
+	font-size: 16px;
+	line-height: 26px;
+}
+.error_close{
+	border:1px solid #FF4200;
+	color:#000;
+	font-weight: bold;
+	font-size: 20px;
+	cursor: pointer;
+	float: right;
+	border-radius:50%;
+	margin-right: 10px;
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+}
+.error_dao{
+	-webkit-transform: rotate(90deg);
+}
+.error_close:ACTIVE{
+	background-color: #FF4200;
+	color:#ffffff;
+}
+.error_div_button{
+	width: 80px;
+	height: 30px;
+	border:1px solid #FF4200;
+	font-size: 16px;
+	text-align: center;
+	line-height: 30px;
+	border-radius:10px;
+	float: right;
+	cursor: pointer;
+}
+.error_div_button:ACTIVE{
+	background-color: #FF4200;
+	color:#ffffff;
+}
+.error_active_button{
+	background-color: #FF4200;
+	color:#ffffff;
+}
+.error_div_context{
+	width: 280px;
+	margin:20px auto;
+	font-size: 16px;
+	color:red;
+	text-align: center;
+}
+.error_datetime_div_context{
+	margin:20px auto;
+	font-size: 16px;
+	color:red;
+	text-align: center;
+}
+
+.error_div_img{
+	width: 60px;
+	height: 60px;
+	vertical-align:middle;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius:50%;
+}
+
+.ts_p{
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color:#ff4200;
+	position: fixed;
+	z-index: 999;
+}
+/* ----------------提示框---------------- */
+
+/* --------------分页---------------- */
+.jssearch_div{
+	width: 86px;
+	border:1px solid #000;
+	height: 32px;
+	border-radius:5px;
+	display: inline-block;
+	margin-left: 5px;
+	position: relative;
+	vertical-align: middle;
+}
+
+.page_p{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.page_div{
+	height: 40px;
+	line-height: 40px;
+	clear: both;
+}
+.page_span,.prev_span,.next_span {
+	border: 1px solid #000;
+	padding: 5px 10px;
+	font-size: 14px;
+	cursor: pointer;
+	color: #000;
+	border-radius: 5px;
+	margin: 2px;
+}
+
+.page_span:hover,.prev_span:hover,.next_span:hover {
+	color: #fff;
+	background-color: #fa791b;
+	border-color: #fa791b;
+}
+
+.page_y {
+	font-size: 14px;
+	margin: 2px;
+}
+
+.curr {
+	color: #fff;
+	background-color: #fa791b;
+	border-color: #fa791b;
+}
+
+.dinone_span {
+	cursor: default;
+	color: #ccc;
+	border: 1px solid #ccc;
+	padding: 5px 8px;
+	font-size: 14px;
+	border-radius: 5px;
+	margin: 2px;
+}
+
+.test_input {
+	border-right: 1px solid #000;
+	width: 50%;
+	width: 50%;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	/* margin-left: 5px; */
+	line-height: 29px;
+	display: inline-block;
+	position: absolute;
+	top: 0px;
+	left:0px;
+}
+
+.test_input:focus {
+	/* border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px; */
+	border-color: #fa791b;
+}
+
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input:-webkit-autofill,select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.go {
+	/* border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc; */
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	width: 50%;
+	height: 100%;
+	line-height: 32px;
+	text-align: center;
+	color: #000;
+	display: inline-block;
+	cursor: pointer;
+	font-size: 16px;
+	position: absolute;
+	top: 0px;
+	right:0px;
+}
+
+.go:hover {
+	background-color: #fa791b;
+	border-color: #fa791b;
+	color: #fff;
+}
+/* --------------分页---------------- */

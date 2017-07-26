@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.VrMapper">
+	<resultMap type="com.ymkj.furniture.entity.Vr" id="vr">
+		<id property="vid" column="vid"/>
+		<result property="title" column="title"/>
+		<result property="cover" column="cover"/>
+		<result property="type" column="type"/>
+		<result property="url" column="url"/>
+		<result property="createDate" column="createDate"/>
+		<result property="dataCount" column="dataCount"/>
+	</resultMap>
+	
+	<!-- 查看 -->
+	<select id="findVrPojoAll" resultMap="vr">
+		select *,(select count(1) from vr 
+			<if test="type!=3">
+				where type = #{type}
+			</if>) dataCount from vr 
+		<if test="type!=3"> 
+			where type = #{type}
+		</if> 
+		order by createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="addVrPojo">
+		insert into vr(title,cover,type,url) values(#{title},#{cover},#{type},#{url})
+	</insert>
+	
+	<!-- 删除 -->
+	<delete id="delVrPojo">
+		delete from vr where vid = #{vid}
+	</delete>
+	
+	<!-- 修改 -->
+	<update id="updVrPojo">
+		update vr set url=#{url},type=#{type},title=#{title},cover=#{cover} where vid = #{vid}
+	</update>
+</mapper>

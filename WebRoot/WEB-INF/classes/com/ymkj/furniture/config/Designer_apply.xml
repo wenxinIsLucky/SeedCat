@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.Designer_applyMapper">
+	<resultMap type="com.ymkj.furniture.entity.Designer_apply" id="designer_apply" >
+		<id property="dpid" column="dpid"/>
+		<result property="name" column="name"/>
+		<result property="phone" column="phone"/>
+		<result property="city" column="city"/>
+		<result property="county" column="county"/>
+		<result property="handle" column="handle"/>
+		<result property="msg" column="msg"/>
+		<result property="doorDate" column="doorDate"/>
+		<result property="createDate" column="createDate"/>
+		<result property="dataCount" column="dataCount"/>
+	</resultMap>
+	
+	<!-- 免费设计服务申请 -->
+	<insert id="addDesigner_apply">
+		insert into designer_apply(`name`,phone,city,county,handle) values(#{name},#{phone},#{city},#{county},0)
+	</insert>
+	
+	<!-- 查看当日免费设计服务申请的数据 -->
+	<select id="findtodayDesigner_apply" resultMap="designer_apply">
+		select * from designer_apply where handle = 1 and TO_DAYS(createDate) = TO_DAYS(NOW())
+	</select>
+	
+	
+	<!-- 查看所有免费设计服务申请的数据 -->
+	<select id="finddesigner_apply" resultMap="designer_apply">
+		select *,(select count(1) from designer_apply where handle = #{handle}) as dataCount from designer_apply where handle = #{handle} limit #{start},#{end}
+	</select>
+	
+	<!--  处理免费设计服务申请的数据 -->
+	<update id="upddesigner_apply">
+		update designer_apply set handle = #{handle},msg = #{msg}
+		<if test="doorDate!=''">
+			,doorDate = #{doorDate}
+		</if>
+		 where dpid = #{dpid}
+	</update>
+	
+	<!-- 删除免费设计服务申请的数据 -->
+	<delete id="deldesigner_apply">
+		delete from designer_apply where dpid = #{dpid}
+	</delete>
+</mapper>

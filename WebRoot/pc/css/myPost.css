@@ -1,0 +1,132 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.post_zong_div {
+	width: 100%;
+}
+
+.post_div_content{
+	width: 100%;
+	margin-top: 10px;
+}
+
+.post_content_ul_one{
+	width: 100%;
+	border-top:1px solid #eee;
+	border-left:1px solid #eee;
+	border-right:1px solid #eee;
+}
+
+.post_content_ul_one li{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	border-bottom:1px solid #eee;
+}
+
+.post_content_ul_one li .post_content_num{
+	position: absolute;
+	font-size: 12px;
+	margin-left: 5px;
+	color:#494949;
+}
+a.post_content_title{
+	color:#ff4200;
+}
+a.post_content_hf{
+	color:#494949;
+}
+a.post_content_bottom{
+	color:#2D64B3;
+}
+a.post_000{
+	color:#000;
+}
+.post_content_hf{
+	font-size: 14px;
+}
+.post_content_ul_one li .post_content_title{
+	padding-left:25px;
+	max-width: 80%;
+	display: inline-block;
+	/* -超出部分省略号显示 - */
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	/* --- */
+}
+
+.post_content_ul_one li .post_content_title:hover{
+	color:#ccc;
+}
+
+.post_content_ul_one li .post_content_date{
+	float: right;
+	padding-right:10px;
+	color:#494949;
+}
+
+/* -------我的评论样式--------- */
+.post_content_ul_two,.post_content_ul_three{
+	width: 100%;
+}
+.post_content_ul_div,.post_content_ul_div_three{
+	width: 100%;
+	border-bottom:1px solid #eee;
+	margin-top: 10px;
+}
+.post_content_ul_div .post_content_ul_div_one,.post_content_ul_div_three .post_content_ul_div_one{
+	width: 100%;
+}
+.post_content_ul_div .post_content_ul_div_p_one,.post_content_ul_div_three .post_content_ul_div_p_one{
+	margin-left: 10px;
+	font-size: 16px;
+	color:#000;
+}
+.post_content_ul_div .post_content_ul_div_p_two,.post_content_ul_div_three .post_content_ul_div_p_two{
+	float: right;
+	margin-right: 10px;
+	font-size: 14px;
+	color:#494949;
+}
+.post_content_ul_div_p_three{
+	float: right;
+	margin-right: 50px;
+	font-size: 14px;
+	color:#494949;
+	margin-top: -20px;
+}
+.post_content_ul_div_centen{
+	width: 100%;
+	margin-left: 40px;
+}
+.post_content_ul_div_bottom{
+	width: 88%;
+	background-color: #fafafa;
+	margin: 10px auto;
+	border:1px solid #ccc;
+	border-radius:10px;
+	padding:20px;
+}
+.post_content_ul_div_centen p{
+	max-width: 80%;
+}
+/* -------我的评论样式--------- */
+
+/* -------评论我的样式--------- */
+.post_content_ul_div_bottom_three{
+	width: 90%;
+	margin: 10px auto;
+}
+.post_content_ul_div_bottom_three .post_bottom_three_title_span{
+	font-size: 12px;
+	color:#494949;
+}
+/* -------评论我的样式--------- */
+
+.myPost_page_div_one,.myPost_page_div_two,.myPost_page_div_three{
+	margin-top: 10px;
+}

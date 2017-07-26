@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.FabulousMapper">
+	<resultMap type="com.ymkj.furniture.entity.Fabulous" id="fabulous">
+		<id property="fid" column="fid"/>
+		<result property="uid" column="uid"/>
+		<result property="ipadd" column="ipadd"/>
+		<result property="cid" column="cid"/>
+		<result property="name" column="name"/>
+		<result property="title" column="title"/>
+		<result property="dataCount" column="dataCount"/>
+		<result property="createDate" column="createDate"/>
+	</resultMap>
+	<!-- 新增赞 -->
+	<insert id="addFabulous">
+		insert into fabulous(uid,ipadd,cid) values(#{uid},#{ipadd},#{cid})
+	</insert>
+	
+	<!-- 查看赞 -->
+	<select id="findFabulous" resultMap="fabulous">
+		select f.*,u.`name`,c.title,(select count(1) from fabulous f left join community c on f.cid=c.cid where c.uid = #{uid}) dataCount from fabulous f
+		left join `user` u on f.uid=u.uid
+		left join community c on f.cid=c.cid
+		where c.uid = #{uid} order by f.createDate desc limit #{start},#{size}
+	</select>
+</mapper>

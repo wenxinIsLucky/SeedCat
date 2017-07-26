@@ -1,0 +1,97 @@
+/* --------------分页---------------- */
+.page_div{
+	height: 40px;
+	line-height: 40px;
+	clear: both;
+}
+.page_span,.prev_span,.next_span {
+	border: 1px solid #000;
+	padding: 5px 8px;
+	font-size: 14px;
+	cursor: pointer;
+	color: #000;
+	border-radius: 10px;
+	margin: 2px;
+}
+
+.page_span:hover,.prev_span:hover,.next_span:hover {
+	color: #fff;
+	background-color: #1488F5;
+	border-color: #1488F5;
+}
+
+.page_y {
+	font-size: 14px;
+	margin: 2px;
+}
+
+.curr {
+	color: #fff;
+	background-color: #1488F5;
+	border-color: #1488F5;
+}
+
+.dinone_span {
+	cursor: default;
+	color: #ccc;
+	border: 1px solid #ccc;
+	padding: 5px 8px;
+	font-size: 14px;
+	border-radius: 10px;
+	margin: 2px;
+}
+
+.test_input {
+	border: 1px solid #ccc;
+	width: 30px;
+	height: 26px;
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+	margin-left: 5px;
+}
+
+.test_input:focus {
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+	border-color: #1488F5;
+}
+
+input {
+	outline-color: invert;
+	outline-style: none;
+	outline-width: 0px;
+	border: none;
+	border-style: none;
+	text-shadow: none;
+	-webkit-appearance: none;
+	-webkit-user-select: text;
+	outline-color: transparent;
+	box-shadow: none;
+}
+
+input:-webkit-autofill,select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.go {
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+	width: 30px;
+	height: 24px;
+	line-height: 22px;
+	text-align: center;
+	color: #000;
+	display: inline-block;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.go:hover {
+	background-color: #1488F5;
+	border-color: #1488F5;
+	color: #fff;
+}
+/* --------------分页---------------- */

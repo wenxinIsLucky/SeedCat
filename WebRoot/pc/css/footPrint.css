@@ -1,0 +1,130 @@
+*{
+	margin: 0;
+	padding:0;
+}
+a,a:link,a:visited,a:hover,a:active{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+.footPrint_zong_div{
+	width: 100%;
+	height: 500px;
+}
+.footPrint_fieldset {
+	width: 97%;
+	padding: 10px;
+	color: #333;
+	/* border-top: #F88D23 dashed 1px;
+	margin-top: -10px;
+	border-left: #F88D23 dashed 1px;
+	border-right: #F88D23 dashed 1px; */
+	border:#ccc solid 1px;
+}
+
+.footPrint_legend {
+	color: #565656;
+	font-weight: 800;
+}
+
+.footPrint_gailou {
+	word-wrap: break-word;
+}
+
+.footPrint_tab_p_div {
+	font-size: 14px;
+	height: 36px;
+	border-bottom: 1px solid #ccc;
+}
+
+.footPrint_tab_p_div li {
+	width: 12%;
+	text-align: center;
+	float: left;
+	margin-top: 5px;
+	margin-left: 10px;
+	/* height: 26px; */
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.footPrint_tab_p_div li:hover{
+	border-top:1px solid #ccc;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #fff;
+}
+
+.footPrint_tab_p_div li a{
+	color: #555;
+}
+.footPrint_curr_a_hover {
+	border-top:1px solid #ccc;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #fff;
+}
+.footPrint_curr_a_click {
+	font-weight: bold;
+	border-top:1px solid #ccc;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #fff;
+}
+.footPrint_page_div{
+	height: 40px;
+	line-height: 40px;
+	clear: both;
+}
+
+/* 装修日记 */
+.article_ul_fp{
+	width: 94%;
+	list-style: none;
+	border-top:1px solid #eee;
+	margin: 0px auto;
+}
+.article_ul_fp .article_li_fp{
+	height: 36px;
+	line-height: 36px;
+	border-bottom:1px solid #eee;
+	width: 100%;
+}
+.article_ul_fp .article_li_fp a{
+	max-width: 75%;
+	display: inline-block;
+	/* -超出部分省略号显示 - */
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	/* --- */
+	text-decoration: none;
+	color:#ff4200;
+	padding-left: 25px;
+}
+
+.article_ul_fp .article_li_fp a:hover{
+	color:#ccc;
+}
+
+.article_ul_fp .article_li_fp .article_scjl_a_fp,.article_ul_fp .article_li_fp .article_sj_fp{
+	float: right;
+	margin-right: 10px;
+}
+.article_ul_fp .article_li_fp .article_scjl_a_fp{
+	font-size: 14px;
+	color:#555;
+	cursor: pointer;
+}
+.article_ul_fp .article_li_fp .article_scjl_a_fp:hover{
+	color:red;
+	font-size: 16px;
+}
+/* 装修日记 */

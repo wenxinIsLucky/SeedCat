@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.MessageMapper">
+	<resultMap type="com.ymkj.furniture.entity.Message" id="message">
+		<id property="mid" column="mid"/>
+		<result property="sendUid" column="sendUid"/>
+		<result property="recUid" column="recUid"/>
+		<result property="recName" column="recName"/>
+		<result property="state" column="state"/>
+		<result property="title" column="title"/>
+		<result property="context" column="context"/>
+		<result property="scope" column="scope"/>
+		<result property="createDate" column="createDate"/>
+		<association property="msgState" column="mid" javaType="com.ymkj.furniture.entity.Msg_State">
+			<id property="msid" column="msid"/>
+			<result property="uid" column="uid"/>
+			<result property="state" column="state"/>
+		</association>
+	</resultMap>
+	
+	<insert id="addMessage">
+		insert into `message`(sendUid,recUid,state,title,context,scope) values
+		<foreach collection="list" item="o" index="index" separator=",">
+			(#{o.sendUid},#{o.recUid},0,#{o.title},#{o.context},#{o.scope})
+		</foreach>
+	</insert>
+	<!-- 添加公告并返回id -->
+	<insert id="addMessageG" parameterType="com.ymkj.furniture.entity.Message" useGeneratedKeys="true" keyProperty="mid">
+		insert into `message`(sendUid,recUid,state,title,context,scope) values(#{sendUid},#{recUid},0,#{title},#{context},#{scope});
+	</insert>
+	
+	<!-- 根据标识返回数据 -->
+	<select id="findMessageByMid" resultMap="message">
+		select * from `message` where mid = #{mid}
+	</select>
+	
+	<!-- 后台查看所有公告条数 -->
+	<select id="findMessageCount" resultType="java.lang.Integer">
+		select count(1) from message 
+		<![CDATA[
+			where state < 3
+		]]>
+		<choose>
+			<when test="startDate!='' and endDate==''">
+				and createDate > #{startDate}
+			</when>
+			<when test="startDate!='' and endDate!=''">
+				and createDate between #{startDate} and #{endDate}
+			</when>
+			<otherwise></otherwise>
+		</choose>
+	</select>
+	<!-- 后台查看公告记录 -->
+	<select id="findMessageAll" resultMap="message">
+		select m.*,ifnull(ui.`name`,(select loginName from `user` where uid = ui.uid)) recName from message m 
+		left join userinfo ui on m.recUid = ui.uid 
+		<![CDATA[
+			where m.state < 3
+		]]>
+		<choose>
+			<when test="startDate!='' and endDate==''">
+				and createDate > #{startDate}
+			</when>
+			<when test="startDate!='' and endDate!=''">
+				and createDate between #{startDate} and #{endDate}
+			</when>
+			<otherwise></otherwise>
+		</choose>
+		order by createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 后台删除公告记录 -->
+	<delete id="delMessageByAdmin">
+		update message set state = 3 where mid = #{mid}
+	</delete>
+	
+	<!-- 删除私信记录 -->
+	<delete id="delPrivatelyMessage">
+		update message set state = 2 where mid = #{mid}
+	</delete>
+	
+	<!-- 删除系统消息 -->
+	<update id="delSysMessage">
+		update msg_state set state = 2 where mid = #{mid} and uid = #{uid}
+	</update>
+	
+	<!-- 新增用户已读系统消息记录 -->
+	<insert id="addMsgState">
+		insert into msg_state(mid,uid,state) values(#{mid},#{uid},1)
+	</insert>
+	
+	<!-- 更新私信状态 -->
+	<update id="updateMessageState" >
+		<!-- select * from `message` where scope = 0 and state = 0 -->
+		update message set state = 1 where mid = #{mid}
+	</update>
+	
+	<!-- 查看我的消息 -->
+	<select id="myMessage" resultMap="message">
+		<![CDATA[ 
+			select m.mid,sendUid,recUid,title,context,scope,createDate,ifnull(ms.state,m.state) state from message m 
+			left join (
+			 select * from msg_state where (uid = #{uid} or uid is null)
+			)ms on m.mid = ms.mid
+			where (ms.state != 2 or ms.state is null) and (recUid = #{uid} or scope = 1) and m.state < 2
+			order by state,m.createDate desc
+		]]>    
+	</select>
+	
+	<!-- 查看我的消息 -->
+	<select id="myMessages" resultMap="message">
+		<![CDATA[ 
+			select m.mid,sendUid,recUid,title,context,scope,createDate,ifnull(ms.state,m.state) state from message m 
+			left join (
+			 select * from msg_state where (uid = #{uid} or uid is null)
+			)ms on m.mid = ms.mid
+			where (ms.state != 2 or ms.state is null) and (recUid = #{uid} or scope = 1) and m.state < 2
+			order by state,m.createDate desc limit #{start},#{end}
+		]]>    
+	</select>
+	
+	<!-- 查看我的消息总数 -->
+	<select id="findMessagesCount" resultType="java.lang.Integer">
+		select count(1) from message where (recUid = #{uid} or scope = 1) and state != 3
+	</select>
+	
+	
+	<select id="unreadMessage" resultType="java.lang.Integer">
+		<![CDATA[
+			select count(1) from message m 
+			left join (
+			 select * from msg_state where (uid = #{uid} or uid is null)
+			)ms on m.mid = ms.mid
+			where (ms.state < 1 or ms.state is null) and (recUid = #{uid} or scope = 1) and m.state < 1
+		]]> 
+	</select>
+</mapper>

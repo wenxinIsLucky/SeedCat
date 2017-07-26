@@ -1,0 +1,44 @@
+package com.ymkj.furniture.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.ymkj.furniture.entity.Jz_material;
+
+public interface Jz_materialMapper {
+	/**
+	 * 新增材料信息
+	 * @param jz_material
+	 * @return
+	 *//*
+	public int addJzmaterial(Jz_material jz_material);
+	
+	*//**
+	 * 修改材料信息
+	 * @param jz_material
+	 * @return
+	 *//*
+	public int updateJzmaterial(Jz_material jz_material);
+	
+	/**
+	 * 根据配置id查看材料信息集合
+	 * @param jcid
+	 * @return
+	 */
+	public List<Jz_material> findJzmaterials();
+	
+	/**
+	 * 查看材料详情
+	 * @param jmid
+	 * @return
+	 *//*
+	public Jz_material findJzmaterial(@Param("jmid")String jmid);
+	
+	*//**
+	 * 删除材料信息
+	 * @param jmid
+	 * @return
+	 *//*
+	public int delJzmaterial(@Param("jmid")String jmid);*/
+}

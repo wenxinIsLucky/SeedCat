@@ -1,0 +1,476 @@
+﻿
+
+.group-choose .choose span.add2{
+    left: 350px;
+}
+.group-choose .choose .checked{
+}
+.group-choose .choose .checked .c-ico{
+    background-position: 0 -166px;
+}
+.group-choose .toilet-name{
+    display: inline-block;
+    width: 67px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 2px;
+    background: #ffffff;
+    border-radius: 3px;
+    color: #ff6600;
+    border: 1px solid #ff6600;
+}
+.group-choose .toilet-name.checked{
+    background: #ff6600;
+    color: #ffffff;
+}
+.group-choose .choose .package-name-wh-d1{
+    width: 286px;
+    height: 70px;
+    padding-top: 0;
+    line-height:70px;
+}
+
+.choose-result{
+    float: right;
+    width: 240px;
+    height: 382px;
+    padding: 30px;
+    margin-top: 12px;
+    border: 1px solid #fcc084;
+    background: #ffffff;
+    position: relative;
+    zoom:1;
+}
+.cr-tlt{
+    width: 116px;
+    padding-bottom: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    border-bottom: 5px solid #fcc084;
+}
+.choose-result .my-choose {
+    width: 220px;
+}
+.choose-result .my-choose .item{
+    float: none;
+    border-width: 0 0 1px;
+    width: 190px;
+    height: auto;
+    padding: 15px;
+}
+.choose-result .my-choose .item .ico{
+    position: absolute;
+    left: 0;
+    top: 15px;
+}
+.choose-result .my-choose .item .ico1{
+    background-position: -621px -99px;
+    width: 27px;
+    height: 22px;
+}
+.choose-result .my-choose .item .ico2{
+    background-position: -621px -131px;
+    width: 28px;
+    height: 24px;
+}
+.choose-result .my-choose .item .ico3{
+    background-position: -621px -165px;
+    width: 31px;
+    height: 26px;
+}
+.choose-result .my-choose .item .ico4{
+    background-position: -621px -201px;
+    width: 28px;
+    height: 24px;
+}
+.choose-result .my-choose .item .pk-name{
+    position: static;
+    padding: 0 0 0 50px;
+    width: auto;
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+}
+.choose-result .my-choose .addimg{
+    padding: 15px;
+    border-color: #cccccc;
+}
+.choose-result .my-choose .addimg .pk-name, .choose-result .my-choose .addimg2 .pk-name{
+    color: #ff5500;
+}
+
+.choose-result .my-choose .result{
+    background: #222222;
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    height: 65px;
+    width: 302px;
+    padding: 0;
+    border-radius: 0;
+}
+.choose-result .my-choose .result .ico{
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    background-position: -187px -851px;
+    width: 30px;
+    height: 32px;
+}
+.choose-result .my-choose .result .pk-name{
+    position: absolute;
+    right: 24px;
+    top: 15px;
+    left: auto;
+    padding-left: 0;
+    background: #eeeeee;
+    color: #999999;
+    width: 118px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 20px;
+    cursor: default;
+}
+.choose-result .my-choose .result.finish .pk-name{
+    background: #ff6600;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.choose-result .my-choose .item3 .gw, .choose-result .my-choose .item3 .zw{
+    height: 25px;
+}
+/**自由组合报价E**/
+
+.group-quote{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1190px;
+    padding: 0;
+    margin: -320px 0 0 -595px;
+    z-index: 11;
+    background: #ffffff;
+}
+.group-quote .choose-tip{
+    text-align: center;
+    font-size: 20px;
+    padding: 60px 0;
+}
+.group-quote .g-txt{
+    float: left;
+    width: 210px;
+    margin-right: 10px;
+    border-color: #cccccc;
+}
+.group-quote .g-txt.area + em{
+    margin-left: -40px;
+    margin-top: 10px;
+    position: absolute;
+    z-index: 2;
+    font-size: 16px;
+}
+.group-quote .g-txt.area.mllarge{
+    margin-left: 250px;
+}
+.group-quote .auth-code{
+    float: left;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+    padding: 5px 10px;
+    width: 230px;
+    height: 30px;
+    margin-top: 0;
+    margin-right: 10px;
+}
+.group-quote .auth-code input{
+    margin-top: 2px;
+    border: none;
+}
+.group-quote .auth-code input.btn{
+    margin-top: 0;
+}
+.group-quote .need-verify-form .g-txt{
+    width: 190px;
+}
+.group-quote .price-result, .group-quote .price-tip{
+    position: absolute;
+    width: 1210px;
+    text-align: center;
+}
+.group-quote .price-result{
+    bottom: 20px;
+    font-size: 16px;
+    color: #ff6600;
+}
+.group-quote .price-result .price{
+    padding-left: 15px;
+    font-size: 36px;
+}
+.group-quote .price-tip{
+    bottom: 20px;
+    font-size: 14px;
+    color: #999999;
+    display: none;
+}
+.group-quote .g-btn{
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    margin-left: -120px;
+    width: 245px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 25px;
+}
+.group-quote .captchaBox{
+    float: left;
+    width: 200px;
+    margin-top: 0;
+    background: #ffffff;
+}
+.group-quote .captchaBox input{
+    width: 80px;
+}
+.group-quote .my-choose{
+    margin-top: 0;
+    width: 740px;
+    padding-bottom: 40px;
+}
+.group-quote .tip{
+    float: left;
+    padding-left: 350px;
+    height: 35px;
+    line-height: 35px;
+    color: #ff6600;
+    font-size: 14px;
+}
+.group-quote .btm-bg{
+    height: 230px;
+    padding-top: 30px;
+    background: #eeeeee;
+}
+/**施工节点S**/
+.step-detail .time-ico{
+    background: url("../images/tc_icos.png") no-repeat;
+}
+.sg-step-cont{
+    position: relative;
+    height: 500px;
+    margin-top: 25px;
+    zoom:1;
+    overflow: hidden;
+}
+.sg-each-step{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 880px;
+    text-align: center;
+    border-left: 1px solid #dcdcdc;
+    background: #ffffff;
+    overflow: hidden;
+}
+.sg-step-cont .sg-each-step1{
+    left: 0;
+    z-index: 1;
+}
+.sg-step-cont .sg-each-step2{
+    left:880px;
+    z-index: 2;
+}
+.sg-step-cont .sg-each-step3{
+    left:990px;
+    z-index: 3;
+}
+.sg-step-cont .sg-each-step4{
+    left:1100px;
+    z-index: 4;
+}
+.sg-each-step .step-detail{
+    float: left;
+    width: 720px;
+}
+.sg-each-step .step-tlt{
+    float: left;
+    width: 110px;
+    height: 500px;
+    color: #ffffff;
+}
+.sg-each-step .step-tlt h3{
+    padding-top: 170px;
+    padding-bottom: 160px;
+    font-size: 30px;
+    color: #ffffff;
+    line-height: 1;
+}
+.sg-each-step .step-tlt h3 + span{
+    font-size: 16px;
+}
+
+.sg-step-cont .sg-each-step1 .step-tlt{
+    background: url("../images/zpj_jd_tlt1.jpg") no-repeat center;
+}
+.sg-step-cont .sg-each-step2 .step-tlt{
+    background: url("../images/zpj_jd_tlt2.jpg") no-repeat center;
+}
+.sg-step-cont .sg-each-step3 .step-tlt{
+    background: url("../images/zpj_jd_tlt3.jpg") no-repeat center;
+}
+.sg-step-cont .sg-each-step4 .step-tlt{
+    background: url("../images/zpj_jd_tlt4.jpg") no-repeat center;
+}
+
+.sg-step-cont .sg-each-step.active .step-tlt{
+    height: 498px;
+    background: url("../images/zpj_jd_tlt_active.jpg") no-repeat center;
+    border: 1px solid #cccccc;
+    border-right: 0;
+    color: #222222;
+}
+.sg-step-cont .sg-each-step.active .step-tlt h3{
+    color: #222222;
+}
+
+.sg-each-step .step-detail ul{
+    float: left;
+    width: 180px;
+    padding-left: 40px;
+    padding-top: 20px;
+}
+.sg-each-step .step-detail ul li{
+    position: relative;
+    zoom:1;
+    height: 70px;
+    margin-top: 20px;
+    padding-left: 70px;
+    text-align: left;
+}
+.sg-each-step .step-detail ul .gx-num{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #222222;
+    width: 44px;
+    height: 45px;
+    padding: 15px 8px 0;
+    color: #fa791b;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: center;
+    border-radius:35px;
+    font-style: normal;
+}
+.step-detail ul li:hover .gx-num{background:#fa791b;color:#fff}
+.step-detail ul li:hover h4{color:#fa791b}
+.step-detail ul li:hover .time-tip{color:#fa791b}
+.sg-each-step .step-detail h4{
+    line-height: 1.3;
+    font-size: 16px;
+    color: #222222;
+}
+.sg-each-step .step-detail .time-tip{
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    color: #9e9e9e;
+}
+.sg-each-step .step-detail .time-ico{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-position:0 -256px;
+    vertical-align: middle;
+    margin: 0 3px 1px 0;
+}
+
+.sg-step-cont .active .step-tlt{
+    background: #eeeeee;
+}
+.sg-each-step .step-detail{
+    border: 1px solid #cccccc;
+    border-left: 0;
+    width: 767px;
+    height: 498px;
+}
+.sg-step-cont .active .step-detail{
+    display: block;
+}
+.sg-app{
+    margin: 65px auto 0;
+    background: url("../images/sztc_sg_img2.png") no-repeat;
+    width: 1100px;
+    height: 630px;
+    text-indent: -9999px;
+}
+/**施工节点E**/
+
+.zhenpin-appoint{
+    padding-top: 35px;
+    text-align: center;
+}
+.zhenpin-appoint select{
+    display: none;
+}
+.zhenpin-appoint .g-txt{
+    width: 255px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 5px;
+    padding: 15px;
+    font-size: 20px;
+    border-color: #cccccc;
+}
+.zhenpin-appoint .g-btn{
+    width: 285px;
+    height: 65px;
+    line-height: 65px;
+    padding: 0;
+    font-size: 20px;
+}
+
+.verify-popup-bd .captchaBox{
+    width: 380px;
+    padding: 0 0 15px 0;
+    height: 35px;
+    border: 0;
+}
+.verify-popup-bd .captchaBox input{
+    margin-top: 0;
+    border: 1px solid #eeeeee;
+}
+.verify-popup-bd .captchaBox .verify-img{
+    position: static;
+    border-left: 0;
+}
+.verify-popup-bd .captchaBox .change-verify-img{
+    display: inline;
+    font-size: 12px;
+}
+.verify-popup-bd .btn{
+    margin-top: 10px;
+}
+
+/**人性化页面入口S**/
+.rxh-entrance{
+    background: url("../images/zpj_page_rxh.jpg") no-repeat center;
+    width: 100%;
+    height: 710px;
+    margin-top: 70px;
+    position: relative;
+    zoom:1;
+}
+.rxh-entrance a{
+    position: absolute;
+    left: 50%;
+    top: 115px;
+    width: 1210px;
+    height: 500px;
+    margin-left: -605px;
+    text-indent: -9999px;
+}
+
+
+/**人性化页面入口E**/

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.CommunityCollectionMapper">
+	<resultMap type="com.ymkj.furniture.entity.CommunityCollection" id="communityCollection">
+		<id property="ccid" column="ccid"/>
+		<result property="uid" column="uid"/>
+		<result property="cid" column="cid"/>
+		<result property="type" column="type"/>
+		<result property="createDate" column="createDate"/>
+		<result property="dataCount" column="dataCount"/>
+		<result property="system" column="system"/>
+		<association property="user" column="uid" javaType="com.ymkj.furniture.entity.User">
+			<result property="name" column="name"/>
+			<result property="head" column="head"/>
+		</association>
+		<association property="community" column="cid" javaType="com.ymkj.furniture.entity.Community">
+			<result property="title" column="title"/>
+			<result property="cover" column="cover"/>
+			<result property="content" column="content"/>
+			<result property="zan" column="zan"/>
+			<result property="cai" column="cai"/>
+			<result property="collection" column="collection"/>
+			<result property="browse" column="browse"/>
+			<result property="reply" column="reply"/>
+			<result property="isAdd" column="isAdd"/>
+			<result property="system" column="system"/>
+		</association>
+	</resultMap>
+	<!-- 新增收藏 -->
+	<insert id="addCommunityCollection">
+		insert into community_collection(uid,cid,type,system) values(#{uid},#{cid},#{type},#{system})
+	</insert>
+	
+	<!-- 查看收藏 -->
+	<select id="findCommunityCollection" resultMap="communityCollection">
+		select *,(select count(1) from community_collection where type = #{type}) dataCount from community_collection cc  
+		left join `user` u on cc.uid=u.uid 
+		left join community c on cc.cid=c.cid 
+		where cc.type = #{type} order by cc.createDate desc limit #{start},#{size}
+	</select>
+</mapper>

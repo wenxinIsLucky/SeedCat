@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ymkj.furniture.mapper.VisitorMapper" >
+  <resultMap id="visitor" type="com.ymkj.furniture.entity.Visitor" >
+    <id column="vid" property="vid" />
+    <result column="visitorDate" property="visitorDate"  />
+    <result column="dataCount" property="dataCount"/>
+    <result column="isGz" property="isGz"/>
+    <result column="isHeGz" property="isHeGz"/>
+    <!-- <result column="mainUid" property="mainUid"  />
+    <result column="visitorUid" property="visitorUid"  /> -->
+    <association property="main" column="mainUid" javaType="com.ymkj.furniture.entity.UserContainer">
+			<id column="uid" property="uid" />
+			<result column="name" property="name"/>
+			<result column="head" property="head"/>
+			<result column="sex" property="sex" />
+			<result column="signature" property="signature" />
+			<result column="lel" property="lel" />
+			<result column="grade" property="grade" />
+		</association>
+		<association property="visitor" column="visitorUid" javaType="com.ymkj.furniture.entity.UserContainer">
+			<id property="uid" column="fuid" />
+			<result property="name" column="fname"/>
+			<result property="head" column="fhead"/>
+			<result property="sex" column="fsex" />
+			<result property="signature" column="fsignature" />
+			<result property="lel" column="flel" />
+			<result property="grade" column="fgrade" />
+		</association>
+  </resultMap>
+  
+  <!-- 添加访客 -->
+  <insert id="addVisitor">
+  	insert into visitor(mainUid,visitorUid) values(#{main.uid},#{visitor.uid})
+  </insert>
+  
+  <!-- 查看访客 -->
+  <select id="findVisitor" resultMap="visitor">
+  		select *,(select count(1) from visitor where mainUid = #{uid}) dataCount,(select count(1) from follow where followUid = us.fuid and fansUid=#{uid}) isGz,(select count(1) from follow where followUid = us.fuid and fansUid=#{heuid}) isHeGz from visitor v 
+		left join (select u.uid,u.`name`,u.head,ui.sex,ui.signature,l.lel,l.grade from `user` u
+		left join userinfo ui on u.uid=ui.uid
+		left join `level` l on u.uid=l.uid) u on v.mainUid=u.uid
+		left join (select u.uid fuid,u.`name` fname,u.head fhead,ui.sex fsex,ui.signature fsignature,l.lel flel,l.grade fgrade from `user` u
+		left join userinfo ui on u.uid=ui.uid
+		left join `level` l on u.uid=l.uid) us on v.visitorUid=us.fuid 
+		where mainUid = #{uid} order by visitorDate desc limit #{start},#{size}
+  </select>
+  
+  <!-- 删除访客 -->
+  <delete id="delVisitor">
+  	delete from visitor where vid = #{vid} and mainUid = #{main.uid} and visitorUid = #{visitor.uid}
+  </delete>
+</mapper>

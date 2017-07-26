@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.BespokeCustomizationMapper">
+	<resultMap type="com.ymkj.furniture.entity.BespokeCustomization" id="bespokeCustomization">
+		<id property="bcid" column="bcid"/>
+		<result property="bname" column="bname"/>
+		<result property="bphone" column="bphone"/>
+		<result property="errorMsg" column="errorMsg"/>
+		<result property="doorDate" column="doorDate"/>
+		<result property="handle" column="handle"/>
+		<result property="createDate" column="createDate"/>
+		<result property="dataCount" column="dataCount"/>
+	</resultMap>
+	
+	<!-- 家装预约定制 -->
+	<insert id="addbespokecustomization">
+		insert into bespokecustomization(bname,bphone,handle)  values(#{bname},#{bphone},0)
+	</insert>
+	
+	<!-- 后台查看所有预约人数据 -->
+	<select id="findbespokecustomization" resultMap="bespokeCustomization">
+		select *,(select count(1) from bespokecustomization where handle = #{handle}) as dataCount from bespokecustomization where handle = #{handle} limit #{start},#{end}
+	</select>
+	<!-- 后台根据编号查询预约人数据 -->
+	<select id="findbespokecustomizationBybcid" resultType="com.ymkj.furniture.entity.BespokeCustomization">
+		select * from bespokecustomization where bcid = #{bcid}
+	</select>
+	<!-- 后台处理预约人数据 -->
+		<!-- <if test="doorDate!=''"> -->
+			
+		<!-- </if> -->
+	<update id="updbespokecustomization">
+		update bespokecustomization set errorMsg = #{errorMsg},handle = #{handle}
+		<if test="doorDate!=''">
+		 ,doorDate = #{doorDate} 
+		</if>
+		where bcid = #{bcid}
+	</update>
+	
+	<!-- 删除预约数据 -->
+ 	<delete id="delbespokecustomization">
+ 		delete from bespokecustomization where bcid = #{bcid}
+ 	</delete>
+	
+</mapper>

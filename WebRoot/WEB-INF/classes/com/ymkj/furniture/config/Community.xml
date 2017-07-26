@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.CommunityMapper">
+	<resultMap type="com.ymkj.furniture.entity.Community" id="community">
+		<id property="cid" column="cid"/>
+		<result property="title" column="title"/>
+		<result property="type" column="type"/>
+		<result property="cover" column="cover"/>
+		<result property="content" column="content"/>
+		<result property="zan" column="zan"/>
+		<result property="cai" column="cai"/>
+		<result property="collection" column="collection"/>
+		<result property="browse" column="browse"/>
+		<result property="reply" column="reply"/>
+		<result property="examine" column="examine"/>
+		<result property="isAdd" column="isAdd"/>
+		<result property="createDate" column="createDate"/>
+		<result property="fid" column="fid"/>
+		<result property="sid" column="sid"/>
+		<result property="ccid" column="ccid"/>
+		<result property="dataCount" column="dataCount"/>
+		<result property="system" column="system"/>
+		<association property="user" column="uid" javaType="com.ymkj.furniture.entity.User">
+			<id property="uid" column="uid"/>
+			<result property="name" column="name"/>
+			<result property="head" column="head"/>
+		</association>
+	</resultMap>
+	<!-- 新增拍客 -->
+	<insert id="addCommunity">
+		insert into community(cid,title,type,cover,content,uid,system) values(#{cid},#{title},#{type},#{cover},#{content},#{user.uid},#{system})
+	</insert>
+	<!-- 新增话题 -->
+	<insert id="addCommunityHt">
+		insert into community(cid,title,type,cover,content,uid,examine,system) values(#{cid},#{title},#{type},#{cover},#{content},#{user.uid},1,#{system})
+	</insert>
+	
+	<!-- 查询帖子 -->
+	<select id="findCommunitySucc" resultMap="community">
+		select c.*,u.`name`,u.head from community c
+		left join `user` u on c.uid=u.uid
+		where examine = #{examine} and type = #{type} order by c.createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 查询自己的帖子 -->
+	<select id="findCommunityByMy" resultMap="community">
+		select c.*,u.`name`,u.head,(select count(1) from community where type = 2 and uid = #{uid}) dataCount from community c
+		left join `user` u on c.uid=u.uid
+		where type = 2 and c.uid = #{uid} order by c.createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 查询帖子总数 -->
+	<select id="findCommunityCount" resultType="java.lang.Integer">
+		select count(1) from community where examine = #{examine}
+	</select>
+	
+	<!-- 帖子详细查看 -->
+	<!-- <select id="findCommunityInfo" resultMap="community">
+		select c.*,u.`name`,u.head,count(f.fid) fid,count(s.sid) sid,count(cc.ccid) ccid from community c
+		left join `user` u on c.uid=u.uid
+		left join fabulous f on c.cid=f.cid
+		left join step s on c.cid=s.cid
+		left join community_collection cc on c.cid=cc.cid
+		where (f.uid = #{param} or f.ipadd = #{param}
+		 or s.uid=#{param} or s.ipadd=#{param}  
+		or cc.cid=#{param}) and binary c.cid=#{cid}
+	</select> -->
+	<select id="findCommunityInfo" resultMap="community">
+		<!-- <![CDATA[
+		{call proc_communityInfo(
+			#{in_cid,mode=IN,jdbcType=VARCHAR},
+			#{in_uid,mode=IN,jdbcType=VARCHAR},
+			#{in_ipadd,mode=IN,jdbcType=VARCHAR}
+		)}]]> -->
+		select c.*,u.`name`,u.head,count(f.fid) fid,count(s.sid) sid,count(cc.ccid) ccid from community c
+		left join `user` u on c.uid=u.uid
+		left join fabulous f on c.cid=f.cid
+		left join step s on c.cid=s.cid
+		left join community_collection cc on c.cid=cc.cid
+		where (f.ipadd = #{ipadd} or s.ipadd=#{ipadd}
+			<if test="uid != ''">
+				 or f.uid = #{uid} or s.uid=#{uid} or cc.uid=#{uid}
+			</if>) and c.cid=#{cid};
+	</select>
+	
+	<!-- 新增浏览数,赞数,踩数,收藏数 -->
+	<update id="updCommunityAllCount">
+		update community set ${param} = ${param}+1 where cid = #{cid}
+	</update>
+</mapper>

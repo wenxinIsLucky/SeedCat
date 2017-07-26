@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.IntegralMapper">
+	<resultMap type="com.ymkj.furniture.entity.Integral" id="integral">
+		<id property="iid" column="iid"/>
+		<result property="uid" column="uid"/>
+		<result property="number" column="number"/>
+	</resultMap>
+	
+	<!-- 添加积分，猫币 -->
+	<insert id="addIntegral">
+		insert into integral(uid) values(#{uid})
+	</insert>
+	
+	<!-- 添加积分，猫币 -->
+	<update id="updIntegral">
+		update integral set number+=#{number} where uid = #{uid}
+	</update>
+</mapper>

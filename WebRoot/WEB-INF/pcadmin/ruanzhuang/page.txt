@@ -1,0 +1,6 @@
+addrz_package_info			--暂定
+addrz_package_project		--添加套餐项目
+addrz_package				--添加套餐
+showrz_package				--显示软装套餐
+updrz_package_project		--修改套餐项目
+updrz_package				--修改套餐

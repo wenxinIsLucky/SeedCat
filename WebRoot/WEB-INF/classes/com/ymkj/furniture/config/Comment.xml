@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymkj.furniture.mapper.CommentMapper">
+	<resultMap type="com.ymkj.furniture.entity.Comment" id="comment">
+		<id property="cid" column="cid"/>
+		<result property="context" column="context"/>
+		<result property="createDate" column="createDate"/>
+		<result property="lft" column="lft"/>
+		<result property="rgt" column="rgt"/>
+		<result property="wzid" column="wzid"/>
+		<result property="system" column="system"/>
+		<result property="floor" column="floor"/>
+		<association property="user" column="uid" javaType="com.ymkj.furniture.entity.User">
+			<id property="uid" column="uid"/>
+			<result property="name" column="name"/>
+			<result property="head" column="head"/>
+		</association>
+	</resultMap>
+	
+	<!-- 查看指定文章下面的所有标识cid -->
+	<select id="findByCidArticleComment" resultType="java.lang.Integer">
+		select cid from `comment` where wzid=#{wzid} order by floor,createDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 查看指定文章下面的所有标识cid数量 -->
+	<select id="findByCidCommentCount" resultType="java.lang.Integer">
+		select count(1) from `comment` where wzid=#{wzid}
+	</select>
+	
+	<!-- 查看指定标识cid上面的直接父节点 -->
+	<select id="findByCidArticleCommentCount" resultMap="comment">
+		<!-- SELECT parent.* FROM `comment` AS node,`comment` AS parent WHERE node.wzid=#{wzid} and parent.wzid=#{wzid} 
+		and node.lft BETWEEN parent.lft AND parent.rgt AND node.cid = #{cid} ORDER BY parent.lft -->
+		select comm.*,u.`name`,u.head from (SELECT parent.* FROM `comment` AS node,`comment` AS parent WHERE node.wzid=#{wzid} and parent.wzid=#{wzid}
+		and node.lft BETWEEN parent.lft AND parent.rgt AND node.cid = #{cid} ORDER BY parent.lft) as comm left join `user` u on comm.uid=u.uid order by comm.floor
+	</select>
+	
+	<!-- 添加对某篇文章的评论(添加节点) -->
+	<select id="addByArticleCommentNode" statementType="CALLABLE" parameterType="com.ymkj.furniture.entity.CommunityParam" resultType="com.ymkj.furniture.entity.CommunityParam">
+		<![CDATA[
+			{call proc_add_node(
+				#{inuid,mode=IN,jdbcType=VARCHAR},
+				#{inwzid,mode=IN,jdbcType=VARCHAR},
+				#{incontext,mode=IN,jdbcType=VARCHAR},
+				#{insystem,mode=IN,jdbcType=VARCHAR},
+				#{result,mode=OUT,jdbcType=INTEGER}
+			)}
+		]]>
+	</select>
+	
+	<!-- 添加对某篇文章的某个评论的评论(添加子节点) -->
+	<select id="addByArticleCommentChildNode" statementType="CALLABLE" parameterType="com.ymkj.furniture.entity.CommunityParam" resultType="com.ymkj.furniture.entity.CommunityParam">
+		<![CDATA[
+			{call proc_add_child_node(
+				#{inuid,mode=IN,jdbcType=VARCHAR},
+				#{incid,mode=IN,jdbcType=INTEGER},
+				#{inwzid,mode=IN,jdbcType=VARCHAR},
+				#{incontext,mode=IN,jdbcType=VARCHAR},
+				#{insystem,mode=IN,jdbcType=VARCHAR},
+				#{result,mode=OUT,jdbcType=INTEGER}
+			)}
+		]]>
+	</select>
+</mapper>

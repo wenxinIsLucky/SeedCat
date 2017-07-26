@@ -1,0 +1,190 @@
+*{
+	margin:0;
+	padding:0;
+}
+a,a:link,a:visited,a:hover,a:active{
+	text-decoration: none;
+}
+.none{
+	display: none;
+}
+.red{
+	color:red;
+}
+.zongDiv{
+	width:500px;
+	border-right:1px solid #ccc;
+	margin: 0 auto;
+	float: left;
+}
+.zongDiv1{
+	width:500px;
+	border:1px solid #ccc;
+	margin: 0 auto;
+}
+.register_type{
+	height: 36px;
+	width: 300px;
+	margin: 0 auto;
+}
+.register_buttom{
+	color:#000;
+	width: 150px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	height: 32px;
+	line-height: 32px;
+}
+.register_buttom_curres{
+	border-bottom:2px solid #FF4200;
+	text-shadow:2px 3px 2px #000;
+}
+.phone_register_div{
+	width: 100%;
+}
+.email_register_div{
+	width: 100%;
+	display: none;
+}
+.himg{
+	width: 120px;
+	height: 40px;
+	cursor: pointer;
+}
+.hvr{
+	font-size: 12px;
+	display: block;
+	margin-left: 135px;
+}
+.phone_register_table{
+	margin: 0 auto;
+}
+.phone_register_table tr{
+	height: 60px;
+	color:#555;
+}
+.phone_register_table tr td input{
+	height: 24px;
+	width: 240px;
+}
+.yz_div{
+	display: inline;
+}
+.yz_div a{
+	font-size: 14px;
+}
+.td_text{
+	text-align: right;
+}
+.div_buttom{
+	border:1px solid #FF4200;
+	border-radius:10px;
+	text-align: center;
+	margin: 10px auto;
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: bold;
+}
+.fonbuttom{
+	border:1px solid #FF4200;
+	border-radius:10px;
+	text-align: center;
+	cursor: pointer;
+}
+.fonbuutom_inline{
+	display: inline;
+	font-size: 14px;
+	padding:5px;
+}
+.fon100_30{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+.fon150_40{
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+}
+.div_buttom:active,.fonbuttom:active{
+	background-color: #FF4200;
+	color:#fff;
+}
+.tsSelect{
+	width: 100px;
+	height: 24px;
+}
+.currAddress{
+	margin: 0 auto;
+	width: 320px;
+	height: 60px;
+	line-height: 60px;
+}
+.currAddress p{
+	display: inline;
+	color:#555;
+}
+.div_a_login{
+	width: 150px;
+	float: right;
+	margin-top: -40px;
+}
+.div_a_login a{
+	font-size: 14px;
+	color:#FF4200;
+}
+
+
+
+body{font-family:"Arial Unicode MS", Fixedsys, "微软雅黑";}
+*{margin:0 auto;}
+.base{width:1200px;}
+.top{height:92px; border-bottom:1px solid #dedede;}
+.top1 div{float:left;}
+.top1 .ll{margin-top:15px;}
+.top1 .cc{margin-top:35px; margin-left:257px;}
+.top1 .rr{margin-top:-40px; margin-left:1000px;}
+.top1 .rr img{float:left;}
+.top1 .rr p{float:left; line-height:15px; color:#e32d27;}
+.bj{background:#fff; height:770px;}
+.bd{width:740px; height:520px; background:#ffffff; padding-top:-54px;}
+.bdl{border-right:1px solid #F00; width:544px; float:left;}
+.bd2 p{font-size:18px; color:#333333; margin-top:22px; float:left; margin-right:72px; margin-left:108px;}
+.bd2 .p2{margin-right:0; margin-left:0px;}
+.bd2 p:hover{color:#e32d27;}
+.bd3 { height:54px; margin-top:78px; margin-left:10px;}
+.bd3 p{ width:120px; height:50px; border:2px solid #c2c2c2; text-align:center; line-height:50px; color:#c2c2c2; float:left; margin-right:75px;}
+.bd3 p:hover{ color:#e32d27;  border:2px solid #e32d27;}
+.bd3 h5{float:left;line-height:50px; margin-right:12px;}
+.bd4{margin-top:18px; margin-left:36px;}
+.bd4 p{ width:323px; height:34px; line-height:34px;}
+.bd5{margin-left:24px; margin-top:18px;}
+.bd5 .kb{width:215px; height:34px; margin-right:10px;}
+.bd5 .wkb{width:95px; height:36px; background:#e32d27; border:none; line-height:36px; font-size:14px; color:#fff;}
+.bd6 p{ width:330px; height:34px; line-height:34px;}
+.bd6 span{font-size:12px; color:#727272; display:block; margin-left:66px;}
+.clear{clear:both;}
+.bd7{margin-top:20px;}
+.bd6{margin-top:20px;}
+.bd7 p{ width:330px; height:34px; line-height:34px;}
+.bd8 p{ text-align:center;}
+
+.bd8 {margin-left:-90px;}
+.bd8 .bd81{font-size:14px; color:#555555; line-height:29px;}
+.bd8 .bd81 img{ margin-right:4px;}
+.bd8 .bd81 span{color:#e32d27;}
+.bd8 .bd82{background:#e32d27; width:300px; height:46px; line-height:46px; color:#fff; font-size:18px;}
+
+
+.zcym{
+	float: right;
+}
+.zcym1{text-align:center; }
+.zcym1 img {margin-top:20px;}
+.zcym1 p{font-size:14px; color:#727272;}
+.zcym1 p a{color:#e3302a;}
+.zcym2 p{text-align:center; margin-top:60px;}
+
+.zcym3 p{text-align:center; margin-top:45px; line-height:33px;}

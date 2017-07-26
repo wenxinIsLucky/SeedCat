@@ -1,0 +1,55 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.clear{
+	clear: both;
+}
+.wallet_div_content{
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.wallet_div_price{
+	width: 95%;
+	margin: 10px auto;
+	font-size: 18px;
+	color:#555;
+}
+.wallet_div_price .sheng_prive_div{
+	float: left;
+	line-height: 32px;
+}
+.wallet_div_price .sheng_prive_div span,.wallet_div_price .leiji_prive_div span{
+	color:#F88D23;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.wallet_div_price .leiji_prive_div{
+	float: left;
+	margin-left: 240px;
+	line-height: 32px;
+}
+.wallet_div_price .tixian_div_buttom{
+	float: right;
+	width: 100px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #F88D23;
+	color:#fff;
+	cursor: pointer;
+}
+.border-bottom{
+	border-bottom: 1px solid #F88D23;
+	width: 95%;
+	margin: 10px auto;
+}
+.daikuan{
+	width: 95%;
+	margin: 0 auto;
+	height: 300px;
+	border:1px solid #ccc;
+}

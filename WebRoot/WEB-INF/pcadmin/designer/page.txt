@@ -1,0 +1,8 @@
+add_designer      --新增设计师
+show_designer     --设计师列表
+upd_designer      --修改设计师
+
+add_designer_case      --新增设计师案例
+show_designer_case     --设计师案例列表
+upd_designer      --修改设计师
+upd_dialogue      --客服回复客户消息

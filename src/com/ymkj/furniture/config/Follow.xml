@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ymkj.furniture.mapper.FollowMapper">
+	<resultMap id="follow" type="com.ymkj.furniture.entity.Follow">
+		<id column="fid" property="fid" />
+		<result column="followDate" property="followDate"/>
+		<result column="dataCount" property="dataCount"/>
+		<result column="isGz" property="isGz"/>
+    <result column="isHeGz" property="isHeGz"/>
+		<!-- <result column="followUid" property="followUid" />
+		<result column="fansUid" property="fansUid" /> -->
+		<association property="follow" column="followUid" javaType="com.ymkj.furniture.entity.UserContainer">
+			<id column="uid" property="uid" />
+			<result column="name" property="name"/>
+			<result column="head" property="head"/>
+			<result column="sex" property="sex" />
+			<result column="signature" property="signature" />
+			<result column="lel" property="lel" />
+			<result column="grade" property="grade" />
+		</association>
+		<association property="fans" column="fansUid" javaType="com.ymkj.furniture.entity.UserContainer">
+			<id property="uid" column="fuid" />
+			<result property="name" column="fname"/>
+			<result property="head" column="fhead"/>
+			<result property="sex" column="fsex" />
+			<result property="signature" column="fsignature" />
+			<result property="lel" column="flel" />
+			<result property="grade" column="fgrade" />
+		</association>
+	</resultMap>
+
+	<!-- 添加关注 -->
+	<insert id="addFollow">
+		insert into follow(followUid,fansUid) values(#{follow.uid},#{fans.uid})
+	</insert>
+	
+	<!-- 查看我,他的关注 -->
+	<select id="findFollowByThis" resultMap="follow">
+		select *,(select count(1) from follow where fansUid = #{uid}) dataCount,(select count(1) from follow where fansUid = #{uid}) isGz,(select count(1) from follow where fansUid = #{heuid}) isHeGz from follow f 
+		left join (select u.uid,u.`name`,u.head,ui.sex,ui.signature,l.lel,l.grade from `user` u
+		left join userinfo ui on u.uid=ui.uid
+		left join `level` l on u.uid=l.uid) u on f.followUid=u.uid
+		left join (select u.uid fuid,u.`name` fname,u.head fhead,ui.sex fsex,ui.signature fsignature,l.lel flel,l.grade fgrade from `user` u
+		left join userinfo ui on u.uid=ui.uid
+		left join `level` l on u.uid=l.uid) us on f.fansUid=us.fuid
+		where fansUid = #{uid} order by followDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 查看我,他的粉丝 -->
+	<select id="findFollowByFans" resultMap="follow">
+		select *,(select count(1) from follow where followUid = #{uid}) dataCount,(select count(1) from follow where fansUid = #{uid}) isGz,(select count(1) from follow where fansUid = #{heuid}) isHeGz from follow f 
+		left join (select u.uid,u.`name`,u.head,ui.sex,ui.signature,l.lel,l.grade from `user` u
+		left join userinfo ui on u.uid=ui.uid
+		left join `level` l on u.uid=l.uid) u on f.followUid=u.uid
+		left join (select u.uid fuid,u.`name` fname,u.head fhead,ui.sex fsex,ui.signature fsignature,l.lel flel,l.grade fgrade from `user` u
+		left join userinfo ui on u.uid=ui.uid
+		left join `level` l on u.uid=l.uid) us on f.fansUid=us.fuid
+		where followUid = #{uid} order by followDate desc limit #{start},#{size}
+	</select>
+	
+	<!-- 是否关注 -->
+	<select id="findIsFollow" resultType="java.lang.Integer">
+		select count(1) from follow where followUid=#{followUid} and fansUid=#{fansUid}
+	</select>
+	
+	<!-- 取消关注 -->
+	<delete id="delFollow">
+		delete from follow where fid = #{fid} and fansUid = #{fans.uid} and followUid = #{follow.uid}
+	</delete>
+</mapper>

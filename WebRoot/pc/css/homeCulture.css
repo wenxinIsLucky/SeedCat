@@ -1,0 +1,49 @@
+*{
+	margin: 0 auto;
+	padding: 0;
+}
+.homeCulture_zong_div{
+	width: 100%;
+	margin-bottom: 20px;
+}
+.lb{
+	width: 100%;
+	margin-top: 20px;
+}
+.lb img{
+	width: 100%;
+}
+.base{
+	width: 1100px;
+	margin: 0px auto;
+}
+.jw{margin-top:20px;}
+
+.jw ul{float:left;}
+.jw dl{ float:right;}
+.jw dl dt{ font-size:22px; color:#e32d27;}
+.jw dl dd{ font-size:14px; color:#050505;}
+
+
+
+.jw2{margin-top:20px;}
+.jw2 dl{float:left;margin-top:144px;}
+.jw2 ul{ float:right;margin-top:20px;}
+.jw2 dl dt{ font-size:22px; color:#e32d27;}
+.jw2 dl dd{ font-size:14px; color:#050505;}
+
+.ff ul li{float:left; margin-top:20px;}
+
+.ff ul{ margin-left:352px;}
+.lb img{ width:100%;}
+.fz ul li img{ float:left; margin-right:10px;}
+
+
+.fz ul li p{ font-size:16px; color:#333;}
+
+.fzp1{ margin-top:-12px;}
+.fzp2{ margin-top:9px;}
+.fzp3{ margin-top:9px;}
+.fzp4{ margin-top:9px;}
+.fzp5{ margin-top:9px;}
+.fzp6{ margin-top:25px;}

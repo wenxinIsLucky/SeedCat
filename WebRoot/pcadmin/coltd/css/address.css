@@ -1,0 +1,58 @@
+.title_table tr{
+	line-height: 48px;
+}
+.show_table tr:hover{
+	background-color: #ddd;
+}
+a,a:link,a:visited,a:hover,a:active{
+	text-decoration: none;
+}
+a{
+	color:#000;
+	display: inline-block;
+	padding: 5px 8px;
+	border-radius:5px;
+	border:1px solid #000;	
+}
+a:hover{
+	color: #fff;
+	background-color: #fa791b;
+	border-color: #fa791b;
+}
+.currenta{
+	color: #fff;
+	background-color: #fa791b;
+	border-color: #fa791b;
+}
+#addaddressdiv{
+	width: 500px;
+	margin: 0px auto;
+	margin-bottom: 100px;
+}
+input{
+	width: 90%;
+	height: 36px;
+}
+.baocun{
+	font-size: 20px;
+	font-weight: bold;
+	border-radius:5px;
+	background-color: #fff;
+	line-height: 50px;
+	height: 50px;
+	width: 260px;
+	cursor: pointer;
+}
+.baocun:hover{
+	color: #fff;
+	background-color: #fa791b;
+	border-color: #fa791b;
+}
+
+
+/* img */
+.td-title img{
+	width: 50%;	
+	height: auto;
+}
+/* img */

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ymkj.furniture.mapper.Sun_homeMapper" >
+  <resultMap id="sun_home" type="com.ymkj.furniture.entity.Sun_home" >
+    <id column="shid" property="shid" />
+    <result column="title" property="title"  />
+    <result column="uid" property="uid" />
+    <result column="name" property="name" />
+    <result column="head" property="head" />
+    <result column="cover" property="cover" />
+    <result column="zan" property="zan"  />
+    <result column="collection" property="collection" />
+    <result column="browse" property="browse" />
+    <result column="examine" property="examine"  />
+    <result column="system" property="system"  />
+    <result column="dataCount" property="dataCount"  />
+    <result column="createDate" property="createDate" />
+    <result column="parentId" property="parentId" />
+    <result column="parentTitle" property="parentTitle" />
+    <result column="nextId" property="nextId" />
+    <result column="nextTitle" property="nextTitle" />
+    <result column="fid" property="fid" />
+    <result column="ccid" property="ccid" />
+  </resultMap>
+  
+  <!-- 添加晒家 -->
+  <insert id="addSunHome">
+  	insert into sun_home(shid,title,uid,cover,content,system) values(#{shid},#{title},#{uid},#{cover},#{content},#{system})
+  </insert>
+  
+  <!-- 查看详细 -->
+  <select id="findSunHomeDetailed" resultMap="sun_home">
+  	<![CDATA[
+  		select s.*,u.`name`,u.head,p.shid parentId,p.title parentTitle,n.shid nextId,n.title nextTitle,count(f.fid) fid,count(cc.ccid) ccid
+		from sun_home s
+		left join `user` u on s.uid=u.uid  
+		left join (select * from sun_home where createDate < (select createDate from sun_home where shid = #{shid}) and examine=1 having MAX(createDate)) p on 1=1
+		left join (select * from sun_home where createDate > (select createDate from sun_home where shid = #{shid}) and examine=1 having MIN(createDate)) n on 1=1
+		left join fabulous f on s.shid=f.cid 
+		left join community_collection cc on s.shid=cc.cid 
+		where s.shid = #{shid}
+  	]]>
+  </select>
+  
+  <!-- 用户查看晒家 -->
+  <select id="findSunHome" resultMap="sun_home">
+  	select s.*,u.`name`,u.head,(select count(1) from sun_home where uid = #{uid}) dataCount from sun_home s  
+  	left join `user` u on s.uid=u.uid
+  	 where s.uid = #{uid} 
+  	order by s.createDate desc limit #{start},#{size}
+  </select>
+  
+  <!-- 管理员查看晒家 -->
+  <select id="findSunHomeByAdmin" resultMap="sun_home">
+  	select s.*,u.`name`,u.head,(select count(1) from sun_home where examine = #{examine}) dataCount from sun_home s 
+  	left join `user` u on s.uid=u.uid
+  	 where s.examine = #{examine}
+  	order by s.createDate desc limit #{start},#{size}
+  </select>
+  
+  <!-- 审核 -->
+  <update id="updSunHome">
+  	update sun_home set examine = #{examine} where uid=#{uid} and shid = #{shid}
+  </update>
+  
+  <!-- 新增浏览数,赞数,踩数,收藏数 -->
+	<update id="updSunHomeAllCount">
+		update sun_home set ${param} = ${param}+1 where shid = #{shid}
+	</update>
+</mapper>

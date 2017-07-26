@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ymkj.furniture.mapper.TechnologyMapper" >
+  <resultMap id="technology" type="com.ymkj.furniture.entity.Technology" >
+    <id column="tid" property="tid"  />
+    <result column="title" property="title" />
+    <result column="type" property="type"  />
+    <result column="url" property="url"  />
+    <result column="author" property="author" />
+    <result column="cover" property="cover"  />
+    <result column="content" property="content"  />
+    <result column="zan" property="zan"  />
+    <result column="collection" property="collection"  />
+    <result column="browse" property="browse"  />
+    <result column="createDate" property="createDate" />
+    <result column="dataCount" property="dataCount" />
+    <result column="parentId" property="parentId" />
+    <result column="parentTitle" property="parentTitle" />
+    <result column="nextId" property="nextId" />
+    <result column="nextTitle" property="nextTitle" />
+    <result column="fid" property="fid" />
+    <result column="ccid" property="ccid" />
+  </resultMap>
+  
+  <!-- 添加籽匠工艺文章 -->
+  <insert id="addTechnology">
+  	insert into technology(tid,title,type,url,author,cover,content) values(#{tid},#{title},#{type},#{url},#{author},#{cover},#{content})
+  </insert>
+  
+  <!-- 分页查看籽匠工艺文章 -->
+  <select id="findTechnologyByType" resultMap="technology">
+  	select *,(select count(1) from technology where type=#{type}) dataCount from technology where type=#{type} order by createDate desc limit #{start},#{size}
+  </select>
+  
+  <!-- 查看详细 -->
+  <select id="findTechnologyDetailed" resultMap="technology">
+  	<![CDATA[
+  		select t.*,p.tid parentId,p.title parentTitle,n.tid nextId,n.title nextTitle,count(f.fid) fid,count(cc.ccid) ccid
+		from technology t
+		left join (select * from technology where createDate < (select createDate from technology where tid = #{tid}) and type = #{type} having MAX(createDate)) p on 1=1
+		left join (select * from technology where createDate > (select createDate from technology where tid = #{tid}) and type = #{type} having MIN(createDate)) n on 1=1
+		left join fabulous f on t.tid=f.cid 
+		left join community_collection cc on t.tid=cc.cid 
+		where t.tid = #{tid}
+  	]]>
+  </select>
+  
+  <!-- 修改籽匠工艺文章 -->
+  <update id="updTechnologyContent">
+  	update technology set title=#{title},type=#{type},url=#{url},author=#{author},cover=#{cover},content=#{content} where tid = #{tid}
+  </update>
+  
+  <!-- 新增浏览数,赞数,踩数,收藏数 -->
+	<update id="updTechnologyAllCount">
+		update technology set ${param} = ${param}+1 where tid = #{tid}
+	</update>
+</mapper>

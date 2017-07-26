@@ -1,0 +1,6 @@
+show_sun						--业主晒家管理
+show_technology					--显示籽匠工艺
+technologypost					--添加籽匠工艺
+classic_casepost				--添加经典案例
+show_classic_case				--显示经典案例
+vradd							--添加vr

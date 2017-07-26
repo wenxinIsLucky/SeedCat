@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ymkj.admin.mapper.DialogueMapper">
+	<resultMap type="com.ymkj.furniture.entity.Dialogue" id="dialogue">
+		<id property="dgid" column="dgid"/>
+		<result property="head" column="head"/>
+		<result property="ip" column="ip"/>
+		<result property="ipAddress" column="ipAddress"/>
+		<result property="handle" column="handle"/>
+		<result property="content" column="content"/>
+		<result property="reply" column="reply"/>
+		<result property="createDate" column="createDate"/>
+		<association property="designer" column="did" javaType="com.ymkj.furniture.entity.Designer">
+				<result property="dname" column="dname"/>
+				<result property="level" column="level"/>
+				<result property="head" column="head"/>
+				<result property="pularval" column="pularval"/>
+		</association>	
+	</resultMap>
+	
+	
+	
+	<!-- 查看指定设计师对话 -->
+	<select id="findDialogueByDid" resultMap="dialogue">
+		select * from dialogue dia 
+		left join designer d on dia.did = d.did
+		where dia.handle = 1 and dia.did = #{did} order by dia.createDate limit #{start},#{end} 
+	</select>
+	<!-- 查看指定设计师对话总条数 -->
+	<select id="findDialogueByDidCount" resultType="java.lang.Integer">
+		select count(1) from dialogue dia 
+		where dia.handle = 1 and dia.did = #{did}
+	</select>
+	
+		<!-- 查看所有对话 -->
+	<select id="findDialogue" resultMap="dialogue">
+	    select * from dialogue dia 
+		left join designer d on dia.did = d.did
+		where dia.handle = #{handle} order by dia.createDate limit #{start},#{end}
+	</select>
+	
+	<!-- 查看对话总条数 -->
+	<select id="findDialogueCount" resultType="java.lang.Integer">
+		select count(1) from dialogue where handle = #{handle}
+	</select>
+	
+	<!-- 设计师回复用户消息 -->
+	<update id="updDialogue">
+		update dialogue set did=#{did},reply=#{reply},handle=#{handle} where handle=0 and dgid=#{dgid}
+	</update>
+	
+	<!-- 删除与用户对话的消息 -->
+	<delete id="delDialogue">
+		delete from dialogue where dgid =#{dgid}
+	</delete>
+	
+</mapper>

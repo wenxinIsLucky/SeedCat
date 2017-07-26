@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ymkj.furniture.mapper.UserInfoMapper" >
+  <resultMap id="userInfo" type="com.ymkj.furniture.entity.UserInfo" >
+    <id column="uiid" property="uiid"  />
+    <result column="uid" property="uid"  />
+    <result column="sex" property="sex" />
+    <result column="day" property="day"  />
+    <result column="sheng" property="sheng"  />
+    <result column="shi" property="shi"  />
+    <result column="signature" property="signature"  />
+  </resultMap>
+  
+  <!-- 添加个人资料 -->
+  <insert id="addUserInfo">
+  	insert into userinfo(uid) values(#{uid})
+  </insert>
+  
+  <!-- 修改个人资料 -->
+  <update id="updUserInfo">
+  	update userinfo set sex=#{sex},day=#{day},sheng=#{sheng},shi=#{shi},signature=#{signature} where uid = #{uid}
+  </update>
+  
+  <!-- 查看个人资料 -->
+  <select id="findUserInfo" resultMap="userInfo">
+  	select * from userinfo where uid = #{uid}
+  </select>
+</mapper>

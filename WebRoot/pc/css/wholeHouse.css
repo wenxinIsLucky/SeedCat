@@ -1,0 +1,167 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.wholeHouse_zong_div {
+	width: 100%;
+}
+
+.clear {
+	clear: both;
+}
+
+.xian {
+	height: 20px;
+	border-top: 1px dotted #ccc;
+	margin-top: 20px;
+}
+
+.base {
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.lb {
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.lb a img {
+	width: 100%;
+	height: 420px;
+}
+
+.qwdz_topbf_div {
+	width: 100%;
+}
+
+.qwdz_topbf_div_left {
+	width: 35%;
+	float: left;
+	min-width: 380px;
+}
+
+.qwdz_topbf_div_left img {
+	width: 100%;
+	height: 310px;
+	min-height: 300px;
+}
+
+.qwdz_topbf_div_right {
+	width: 62%;
+	float: right;
+}
+
+.qwp {
+	font-size: 20px;
+	font-weight: bold;
+	color: #000;
+}
+
+.xihuan,.shoucan {
+	font-size: 14px;
+	color: #555;
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.six {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.qwimg img {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+}
+
+.six2,.six6 {
+	float: right;
+}
+
+.six6 {
+	width: 120px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #ff4200;
+	text-align: center;
+	margin-top: 70px;
+	cursor: pointer;
+}
+
+.six2 {
+	width: 420px;
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+.six3 {
+	color: #000;
+}
+
+.six3 span,.six5 {
+	color: #555;
+	font-size: 13px;
+}
+
+.zstp {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.zstp img {
+	width: 220px;
+	height: 140px;
+	display: inline-block;
+}
+
+.jpzttt {
+	width: 100%;
+}
+
+.jpzt1 {
+	width: 24%;
+	display: inline-block;
+	border: 1px solid #ccc;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.jpzt2 {
+	font-size: 16px;
+	color: #000;
+	font-weight: bold;
+	border-bottom:1px dotted #ccc;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 5px;
+	background-color: #f5f5f5;
+}
+
+.jpzt1 span {
+	font-size: 14px;
+	color: #555;
+	display: block;
+	line-height: 24px;
+	width: 240px;
+	/* -超出部分省略号显示 - */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/* --- */
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+.jpzt1 span:hover{
+	color:#ff4200;
+}

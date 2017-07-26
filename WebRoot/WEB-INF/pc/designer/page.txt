@@ -1,0 +1,3 @@
+designer_home				--设计师首页
+designer_child				--设计师内页
+designer_info				--设计师详细

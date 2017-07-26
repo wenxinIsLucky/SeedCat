@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ymkj.furniture.mapper.Corporate_cultureMapper">
+	<resultMap id="corporate_culture" type="com.ymkj.furniture.entity.Corporate_culture">
+		<id column="ccid" property="ccid" />
+		<result column="url" property="url" />
+		<result column="content" property="content" />
+		<result column="imgs" property="imgs" />
+		<result column="mubiao" property="mubiao" />
+		<result column="zongzhi" property="zongzhi" />
+		<result column="idea" property="idea" />
+	</resultMap>
+	
+	<!-- 修改公司文化 -->
+	<update id="updCorporateCulture">
+		update corporate_culture set url=#{url},content=#{content},imgs=#{imgs},mubiao=#{mubiao},zongzhi=#{zongzhi},idea=#{idea}  where ccid=1
+	</update>
+	
+	<!-- 查看公司文化 -->
+	<select id="findCorporateCulture" resultMap="corporate_culture">
+		select * from corporate_culture
+	</select>
+</mapper>

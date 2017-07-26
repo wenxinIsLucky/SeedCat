@@ -1,0 +1,8 @@
+clsCnt=64
+eclipse.preferences.version=1
+locCnt=6174
+pkgCnt=16
+sTime=2017\u5E744\u670819\u65E5 \u661F\u671F\u4E09 \u4E0B\u534811\u65F630\u520620\u79D2 CST
+srcCnt=1
+validator.Checked=src/config.json,src/transactionBeans.xml,WebRoot
+validator.Unchecked=WebRoot/WEB-INF/web.xml
